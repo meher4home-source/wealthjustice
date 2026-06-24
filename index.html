@@ -1,0 +1,2317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#08091A">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="mobile-web-app-capable" content="yes">
+<title>WealthJustice AI — AI Legal, Tax & Wealth Information Tool</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%2308091A'/%3E%3Ccircle cx='20' cy='20' r='15.5' fill='none' stroke='%23B07D4A' stroke-width='1.4'/%3E%3Ctext x='20' y='26.5' font-family='Georgia,serif' font-size='14' font-weight='600' text-anchor='middle' fill='%23B07D4A'%3EWJ%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%2308091A'/%3E%3Ccircle cx='20' cy='20' r='15.5' fill='none' stroke='%23B07D4A' stroke-width='1.4'/%3E%3Ctext x='20' y='26.5' font-family='Georgia,serif' font-size='14' font-weight='600' text-anchor='middle' fill='%23B07D4A'%3EWJ%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --ink:#08091A;--ink2:#0E1020;--ink3:#141528;--ink4:#1A1C30;
+  --b1:rgba(255,255,255,0.055);--b2:rgba(255,255,255,0.09);--b3:rgba(255,255,255,0.14);
+  --ivory:#F2EDD4;--ivory2:#C4BEA8;--ivory3:#6B6558;--ivory4:#2E2B22;
+  --copper:#B07D4A;--copper2:#CFA06A;--copper3:#8A6138;
+  --copper-bg:rgba(176,125,74,0.08);--copper-b:rgba(176,125,74,0.2);--copper-b2:rgba(176,125,74,0.38);
+  --green:#4A9E72;--green-bg:rgba(74,158,114,0.1);--green-b:rgba(74,158,114,0.28);
+  --red:#C76B6B;--red-bg:rgba(199,107,107,0.1);
+  --serif:'Cormorant Garamond',Georgia,serif;--sans:'Inter',system-ui,sans-serif;
+  --r:12px;--r-sm:8px;--r-xs:5px;
+  --vh:100vh;
+}
+html,body{height:100%}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--ink);color:var(--ivory);min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* NAV */
+nav{display:flex;align-items:center;justify-content:space-between;padding:20px 56px;position:sticky;top:0;background:rgba(8,9,26,0.94);backdrop-filter:blur(16px);z-index:200;border-bottom:1px solid var(--b1)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-mark{width:34px;height:34px;display:flex;align-items:center;justify-content:center;color:var(--copper);flex-shrink:0}
+.al-mark{width:32px;height:32px;display:flex;align-items:center;justify-content:center;color:var(--copper);flex-shrink:0}
+.logo-txt{font-family:var(--serif);font-size:17px;font-weight:300;color:var(--ivory)}
+.logo-txt b{font-weight:600;color:var(--copper)}
+.nav-r{display:flex;gap:8px}
+.btn-g{padding:8px 18px;background:transparent;border:1px solid var(--b2);color:var(--ivory2);border-radius:var(--r-sm);cursor:pointer;font-size:13px;font-family:var(--sans);transition:all .18s}
+.btn-g:hover{border-color:var(--copper-b);color:var(--ivory);background:var(--copper-bg)}
+.btn-p{padding:8px 18px;background:var(--copper);color:var(--ink);border:none;border-radius:var(--r-sm);cursor:pointer;font-size:13px;font-weight:600;font-family:var(--sans);transition:all .18s}
+.btn-p:hover{background:var(--copper2);transform:translateY(-1px)}
+
+/* HERO */
+.hero{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:85vh;padding:70px 24px 56px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:600px;height:500px;background:radial-gradient(ellipse at center top,rgba(176,125,74,0.07) 0%,transparent 65%);pointer-events:none}
+.hero-line{font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--copper);margin-bottom:32px;opacity:.8;line-height:1.8}
+h1{font-family:var(--serif);font-size:clamp(38px,8vw,86px);font-weight:300;line-height:1.06;letter-spacing:-1px;color:var(--ivory);margin-bottom:18px;font-style:italic}
+h1 em{font-style:normal;color:var(--copper);font-weight:300}
+.hero-sub{font-size:15px;color:var(--ivory3);line-height:1.7;max-width:440px;margin-bottom:36px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.btn-hero{padding:14px 30px;font-size:14px;font-weight:500;border-radius:var(--r);cursor:pointer;transition:all .22s;font-family:var(--sans)}
+.btn-hero.primary{background:var(--copper);color:var(--ink);border:none}
+.btn-hero.primary:hover{background:var(--copper2);transform:translateY(-2px);box-shadow:0 10px 36px rgba(176,125,74,.22)}
+.btn-hero.secondary{background:transparent;color:var(--ivory2);border:1px solid var(--b3)}
+.btn-hero.secondary:hover{border-color:var(--copper-b);color:var(--ivory);background:var(--copper-bg)}
+
+/* SECTIONS */
+.section{padding:80px 56px;max-width:1100px;margin:0 auto;width:100%}
+.sec-label{font-size:10.5px;font-weight:500;letter-spacing:2.8px;text-transform:uppercase;color:var(--copper);opacity:.75;margin-bottom:18px}
+.sec-title{font-family:var(--serif);font-size:clamp(28px,4vw,50px);font-weight:300;letter-spacing:-.5px;color:var(--ivory);margin-bottom:48px;font-style:italic;line-height:1.15}
+.sec-title b{font-style:normal;font-weight:600}
+
+/* ADVISORS GRID */
+.adv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1px;background:var(--b1);border:1px solid var(--b1);border-radius:var(--r);overflow:hidden}
+.adv-item{background:var(--ink2);padding:24px;transition:background .18s}
+.adv-item:hover{background:var(--ink3)}
+.adv-ico{font-size:20px;margin-bottom:10px;display:block}
+.adv-name{font-family:var(--serif);font-size:16px;font-weight:600;color:var(--ivory);margin-bottom:6px}
+.adv-desc{font-size:12.5px;color:var(--ivory2);line-height:1.6}
+.adv-tag{display:inline-block;font-size:10px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--copper);opacity:.7;margin-top:8px}
+
+/* HOW IT WORKS */
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.how-num{width:38px;height:38px;border:1px solid var(--copper-b2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:17px;color:var(--copper);margin-bottom:16px;background:var(--copper-bg)}
+.how-name{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--ivory);margin-bottom:8px}
+.how-desc{font-size:13px;color:var(--ivory2);line-height:1.7}
+@media(max-width:860px){.how-grid{grid-template-columns:1fr;gap:28px}}
+
+/* PRICE SHOCK */
+.price-shock{padding:70px 24px;border-top:1px solid var(--b1);border-bottom:1px solid var(--b1)}
+.ps-inner{max-width:760px;margin:0 auto;display:grid;grid-template-columns:1fr 1px 1fr;align-items:center}
+.ps-col{padding:30px;text-align:center}
+.ps-div{background:var(--b1);height:120px}
+.ps-label{font-size:10.5px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--ivory3);margin-bottom:14px}
+.ps-price{font-family:var(--serif);font-size:clamp(46px,8vw,80px);font-weight:300;color:var(--red);line-height:1;margin-bottom:6px}
+.ps-price.good{color:var(--copper)}
+.ps-sub{font-size:12.5px;color:var(--ivory3);line-height:1.6}
+
+/* PRICING */
+.pricing-section{padding:80px 24px}
+.pricing-wrap{max-width:920px;margin:0 auto}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.pcard{background:var(--ink2);border:1px solid var(--b1);border-radius:var(--r);padding:30px 24px;position:relative;transition:border-color .2s}
+.pcard:hover{border-color:var(--b2)}
+.pcard.feat{border-color:var(--copper-b2);background:var(--ink3)}
+.pcard.feat:hover{border-color:var(--copper)}
+.pc-tag{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--copper);color:var(--ink);font-size:9.5px;font-weight:700;padding:3px 14px;border-radius:100px;letter-spacing:1.2px;white-space:nowrap}
+.pname{font-size:10px;font-weight:600;color:var(--ivory3);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:14px}
+
+/* NEW pricing display: was-price + new-price side by side */
+.price-row{display:flex;align-items:flex-end;gap:14px;margin-bottom:6px;flex-wrap:wrap}
+.price-was-wrap{display:flex;flex-direction:column;align-items:flex-start;padding-bottom:8px}
+.price-was-lbl{font-size:9px;font-weight:600;color:var(--ivory3);text-transform:uppercase;letter-spacing:2px;margin-bottom:3px}
+.price-was{font-family:var(--sans);font-size:20px;font-weight:700;color:var(--red);text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:var(--red);line-height:1}
+.pprice{font-family:var(--serif);font-size:52px;font-weight:300;color:var(--ivory);line-height:1}
+.pprice sub{font-family:var(--sans);font-size:15px;font-weight:400;color:var(--ivory2);vertical-align:super}
+.pperiod{font-size:11.5px;color:var(--ivory3);margin-bottom:14px;margin-top:4px}
+.psave{display:inline-block;background:var(--green-bg);border:1px solid var(--green-b);color:var(--green);font-size:11px;font-weight:700;padding:4px 12px;border-radius:100px;margin-bottom:18px;letter-spacing:.3px}
+.pfeats{list-style:none;margin-bottom:22px;display:flex;flex-direction:column;gap:8px}
+.pfeats li{font-size:12.5px;color:var(--ivory2);display:flex;align-items:flex-start;gap:8px;line-height:1.5}
+.pfeats li::before{content:'·';color:var(--copper);font-weight:700;font-size:16px;flex-shrink:0;margin-top:-2px}
+.pbtn{width:100%;padding:13px;border-radius:var(--r-sm);cursor:pointer;font-size:13.5px;font-weight:600;font-family:var(--sans);transition:all .18s}
+.pbtn.out{background:transparent;border:1px solid var(--b2);color:var(--ivory2)}
+.pbtn.out:hover{border-color:var(--copper-b);color:var(--ivory)}
+.pbtn.cop{background:var(--copper);color:var(--ink);border:none}
+.pbtn.cop:hover{background:var(--copper2)}
+.urgency{text-align:center;margin-top:18px;font-size:11.5px;color:var(--ivory3)}
+.urgency span{color:var(--copper)}
+.launch-badge{display:inline-block;padding:5px 16px;border:1px solid rgba(199,107,107,.3);background:rgba(199,107,107,.08);border-radius:100px;font-size:12px;color:#dba0a0}
+
+/* FOOTER */
+footer{padding:32px 24px;border-top:1px solid var(--b1);display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:auto}
+.fl{display:flex;gap:20px}
+.fl a{font-size:11.5px;color:var(--ivory3);text-decoration:none;transition:color .15s}
+.fl a:hover{color:var(--copper)}
+footer p{font-size:11px;color:var(--ivory4);text-align:center}
+
+/* ═══════════ APP ═══════════ */
+#app{display:none;height:100vh;height:100dvh;flex-direction:column;overflow:hidden}
+
+.app-nav{height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;border-bottom:1px solid var(--b1);background:var(--ink);flex-shrink:0;gap:10px;padding-top:env(safe-area-inset-top)}
+.hamburger{display:none;width:36px;height:36px;align-items:center;justify-content:center;background:transparent;border:1px solid var(--b2);border-radius:8px;cursor:pointer;color:var(--ivory2);flex-shrink:0}
+.hamburger svg{width:18px;height:18px}
+.app-logo{display:flex;align-items:center;gap:8px;cursor:pointer;text-decoration:none;flex-shrink:0}
+/* al-mark defined above with logo-mark */
+.al-txt{font-family:var(--serif);font-size:15px;font-weight:300;color:var(--ivory);letter-spacing:.3px;white-space:nowrap}
+.al-txt b{font-weight:600;color:var(--copper)}
+@media(max-width:480px){.al-txt{display:none}}
+.app-user-row{display:flex;align-items:center;gap:8px}
+.user-name-tag{font-size:13px;color:var(--ivory2);font-weight:500;white-space:nowrap}
+.plan-pip{padding:3px 9px;background:var(--copper-bg);border:1px solid var(--copper-b);border-radius:100px;font-size:9px;font-weight:700;color:var(--copper);letter-spacing:.8px;white-space:nowrap}
+.plan-pip.pro{background:rgba(74,158,114,0.1);border-color:rgba(74,158,114,0.28);color:var(--green)}
+.plan-pip.premium{background:rgba(176,125,74,0.15);border-color:var(--copper-b2);color:var(--copper2)}
+.btn-so{padding:5px 12px;background:transparent;border:1px solid var(--b1);color:var(--ivory3);border-radius:var(--r-xs);cursor:pointer;font-size:11.5px;font-family:var(--sans);transition:all .15s;white-space:nowrap}
+.btn-so:hover{border-color:var(--b2);color:var(--ivory2)}
+
+.app-body{display:flex;flex:1;overflow:hidden;position:relative}
+
+/* SIDEBAR */
+.sidebar{width:252px;background:var(--ink2);border-right:1px solid var(--b1);display:flex;flex-direction:column;flex-shrink:0;overflow:hidden}
+.sb-top{flex-shrink:0;padding:12px}
+.nc-btn{width:100%;padding:10px;background:var(--copper);color:var(--ink);border:none;border-radius:var(--r-sm);cursor:pointer;font-size:13px;font-weight:600;font-family:var(--sans);transition:all .16s}
+.nc-btn:hover{background:var(--copper2)}
+.sb-scroll{flex:1;overflow-y:auto;padding:4px 0 16px}
+.sb-scroll::-webkit-scrollbar{width:3px}
+.sb-scroll::-webkit-scrollbar-thumb{background:var(--b2);border-radius:2px}
+.sb-lbl{font-size:9px;font-weight:600;color:var(--ivory3);letter-spacing:2.5px;text-transform:uppercase;padding:12px 16px 6px}
+.sb-btn{display:flex;align-items:center;gap:9px;width:calc(100% - 8px);padding:9px 12px;background:transparent;border:1px solid transparent;border-radius:var(--r-sm);cursor:pointer;font-size:13px;color:var(--ivory2);text-align:left;font-family:var(--sans);transition:all .14s;margin:0 4px}
+.sb-btn:hover{background:var(--ink3);color:var(--ivory)}
+.sb-btn.act{background:var(--copper-bg);color:var(--copper);border-color:var(--copper-b)}
+.sb-btn.wealth-btn{color:var(--copper2)}
+.sb-btn.wealth-btn.act{background:rgba(176,125,74,0.15);border-color:var(--copper-b2)}
+.sb-ico{font-size:15px;flex-shrink:0;width:18px;text-align:center}
+.sb-div{height:1px;background:var(--b1);margin:8px 12px}
+
+/* HISTORY */
+.hi-item{display:flex;align-items:center;gap:7px;width:calc(100% - 8px);padding:8px 10px;background:transparent;border:1px solid transparent;border-radius:var(--r-sm);cursor:pointer;transition:all .13s;margin:1px 4px;text-align:left}
+.hi-item:hover{background:var(--ink3)}
+.hi-item.cur{background:var(--ink3);border-color:var(--b2)}
+.hi-adv{font-size:13px;flex-shrink:0}
+.hi-txt{flex:1;font-size:12px;color:var(--ivory2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hi-del{background:transparent;border:none;color:var(--ivory3);cursor:pointer;font-size:14px;padding:2px 4px;border-radius:3px;flex-shrink:0;transition:all .13s;font-family:var(--sans);line-height:1}
+.hi-del:hover{color:var(--red);background:var(--red-bg)}
+.no-hi{padding:8px 16px;font-size:11px;color:var(--ivory4);font-style:italic}
+
+/* SIDEBAR OVERLAY (mobile) */
+.sb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:299}
+.sb-overlay.show{display:block}
+
+/* CHAT COLUMN */
+.chat-col{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0}
+.chat-hdr{height:52px;display:flex;align-items:center;gap:12px;padding:0 20px;border-bottom:1px solid var(--b1);background:var(--ink);flex-shrink:0}
+.ch-ico{width:34px;height:34px;background:var(--copper-bg);border:1px solid var(--copper-b);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.ch-name{font-family:var(--serif);font-size:15px;font-weight:600;color:var(--ivory)}
+.ch-sub{font-size:11px;color:var(--ivory3);display:none}
+@media(min-width:620px){.ch-sub{display:block}}
+
+/* MESSAGES */
+.msgs{flex:1;overflow-y:auto;padding:18px 20px;display:flex;flex-direction:column;gap:16px;-webkit-overflow-scrolling:touch}
+.msgs::-webkit-scrollbar{width:3px}
+.msgs::-webkit-scrollbar-thumb{background:var(--b2);border-radius:2px}
+
+/* WELCOME */
+.ws{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px 16px;gap:8px}
+.ws-ico{width:58px;height:58px;background:var(--copper-bg);border:1px solid var(--copper-b);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:27px;margin-bottom:4px}
+.ws-title{font-family:var(--serif);font-size:20px;font-weight:600;color:var(--ivory)}
+.ws-desc{font-size:13px;color:var(--ivory2);max-width:380px;line-height:1.65}
+.chips{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin-top:16px;max-width:540px}
+.chip{padding:8px 14px;background:var(--ink3);border:1px solid var(--b2);border-radius:100px;font-size:12.5px;color:var(--ivory2);cursor:pointer;font-family:var(--sans);transition:all .14s}
+.chip:hover{border-color:var(--copper-b);color:var(--ivory);background:var(--copper-bg)}
+
+/* BUBBLES */
+.msg{display:flex;gap:9px;max-width:820px}
+.msg.usr{flex-direction:row-reverse;align-self:flex-end}
+.m-av{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;align-self:flex-start}
+.msg.ai .m-av{background:var(--copper-bg);border:1px solid var(--copper-b);color:var(--copper)}
+.msg.usr .m-av{background:var(--ink3);border:1px solid var(--b2);color:var(--ivory2);font-size:11px;font-weight:600}
+.m-bub{max-width:calc(100% - 39px)}
+.msg.usr .m-bub{background:var(--copper);padding:10px 15px;border-radius:12px 2px 12px 12px;font-size:14px;color:var(--ink);line-height:1.6;font-weight:500;word-wrap:break-word}
+.msg-imgs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px}
+.msg-imgs img{width:80px;height:80px;object-fit:cover;border-radius:8px;display:block}
+.msg.ai .m-bub{background:var(--ink2);border:1px solid var(--b1);padding:14px 18px;border-radius:2px 12px 12px 12px;font-size:14px;color:var(--ivory);line-height:1.78;word-wrap:break-word}
+.msg.ai .m-bub h3{font-family:var(--serif);font-size:15px;font-weight:600;margin:12px 0 5px;color:var(--ivory)}
+.msg.ai .m-bub h3:first-child{margin-top:0}
+.msg.ai .m-bub p{margin-bottom:8px}
+.msg.ai .m-bub p:last-child{margin-bottom:0}
+.msg.ai .m-bub ul,.msg.ai .m-bub ol{padding-left:18px;margin:6px 0}
+.msg.ai .m-bub li{margin-bottom:4px}
+.msg.ai .m-bub strong{color:var(--ivory);font-weight:600}
+.doc-dl{display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:7px 13px;background:var(--green-bg);border:1px solid var(--green-b);border-radius:var(--r-sm);font-size:11.5px;color:var(--green);cursor:pointer;font-family:var(--sans);font-weight:500;transition:all .13s}
+.doc-dl:hover{background:rgba(74,158,114,.18)}
+
+/* TYPING */
+.typing-wrap{display:flex;gap:9px}
+.t-bub{display:flex;gap:4px;padding:12px 16px;background:var(--ink2);border:1px solid var(--b1);border-radius:2px 12px 12px 12px;align-items:center}
+.td{width:5px;height:5px;background:var(--ivory3);border-radius:50%;animation:tda 1.2s infinite}
+.td:nth-child(2){animation-delay:.16s}.td:nth-child(3){animation-delay:.32s}
+@keyframes tda{0%,60%,100%{transform:translateY(0);opacity:.35}30%{transform:translateY(-5px);opacity:1}}
+
+/* UPGRADE WALL (shown only after limit hit — no live counter) */
+.up-wall{margin-bottom:10px;padding:12px 15px;background:var(--copper-bg);border:1px solid var(--copper-b);border-radius:var(--r-sm);display:none;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.up-wall.show{display:flex}
+.up-wall p{font-size:12.5px;color:var(--ivory2);line-height:1.4}
+.up-wall strong{color:var(--ivory)}
+.up-wall-btn{padding:8px 14px;background:var(--copper);color:var(--ink);border:none;border-radius:var(--r-sm);cursor:pointer;font-size:12.5px;font-weight:600;font-family:var(--sans);white-space:nowrap;transition:background .15s}
+.up-wall-btn:hover{background:var(--copper2)}
+
+/* INPUT ZONE */
+.input-zone{padding:10px 16px;padding-bottom:max(12px,env(safe-area-inset-bottom));border-top:1px solid var(--b1);background:var(--ink);flex-shrink:0}
+.inp-row{display:flex;gap:7px;background:var(--ink2);border:1px solid var(--b2);border-radius:var(--r);padding:8px 8px 8px 14px;transition:border-color .18s;align-items:flex-end}
+.inp-row:focus-within{border-color:var(--copper-b)}
+#uInp{flex:1;background:transparent;border:none;outline:none;color:var(--ivory);font-size:16px;font-family:var(--sans);resize:none;max-height:110px;line-height:1.5;padding:6px 0}
+#uInp::placeholder{color:var(--ivory3)}
+.icon-btn{width:36px;height:36px;border:none;border-radius:var(--r-sm);cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .14s}
+.icon-btn svg{width:16px;height:16px}
+.mic-btn{background:var(--ink3);border:1px solid var(--b2)}
+.mic-btn svg{fill:none;stroke:var(--ivory2);stroke-width:2}
+.mic-btn:hover{border-color:var(--copper-b)}
+.mic-btn.recording{background:var(--red-bg);border-color:var(--red);animation:micpulse 1.2s infinite}
+.mic-btn.recording svg{stroke:var(--red)}
+.img-btn{background:var(--ink3);border:1px solid var(--b2);position:relative}
+.img-btn svg{stroke:var(--ivory2)}
+.img-btn:hover{border-color:var(--copper-b)}
+.img-btn .lock-badge{position:absolute;bottom:-3px;right:-3px;width:13px;height:13px;background:var(--copper);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.img-btn .lock-badge svg{width:7px;height:7px;stroke:var(--ink);stroke-width:3}
+.img-preview-row{display:none;gap:8px;padding:0 0 8px;flex-wrap:wrap}
+.img-preview-row.show{display:flex}
+.img-thumb{position:relative;width:54px;height:54px;border-radius:8px;overflow:hidden;border:1px solid var(--b2);flex-shrink:0}
+.img-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.img-thumb-x{position:absolute;top:2px;right:2px;width:16px;height:16px;background:rgba(8,9,26,.85);border:none;border-radius:50%;color:var(--ivory);font-size:10px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;padding:0}
+@keyframes micpulse{0%,100%{box-shadow:0 0 0 0 rgba(199,107,107,.4)}50%{box-shadow:0 0 0 6px rgba(199,107,107,0)}}
+.send-btn{background:var(--copper)}
+.send-btn svg{fill:var(--ink);stroke:none}
+.send-btn:hover{background:var(--copper2)}.send-btn:disabled{opacity:.35;cursor:not-allowed}
+.inp-disc{text-align:center;font-size:10px;color:var(--ivory4);margin-top:7px;line-height:1.5}
+
+/* MODAL */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);backdrop-filter:blur(10px);z-index:1000;align-items:center;justify-content:center;padding:16px}
+.overlay.open{display:flex}
+.modal{background:var(--ink2);border:1px solid var(--b2);border-radius:18px;padding:32px;width:100%;max-width:410px;position:relative;max-height:92vh;overflow-y:auto}
+.modal::-webkit-scrollbar{width:2px}
+.modal::-webkit-scrollbar-thumb{background:var(--b2)}
+.m-close{position:absolute;top:14px;right:16px;background:transparent;border:none;color:var(--ivory3);font-size:18px;cursor:pointer;padding:4px;transition:color .13s;font-family:var(--sans);line-height:1}
+.m-close:hover{color:var(--ivory2)}
+.m-ttl{font-family:var(--serif);font-size:22px;font-weight:600;color:var(--ivory);margin-bottom:5px}
+.m-sub{font-size:13px;color:var(--ivory2);margin-bottom:20px;line-height:1.55}
+.err{background:var(--red-bg);border:1px solid rgba(199,107,107,.3);color:#e0a8a8;padding:8px 12px;border-radius:var(--r-sm);font-size:12.5px;margin-bottom:12px;display:none}
+.field{margin-bottom:12px}
+.field label{display:block;font-size:11.5px;font-weight:500;color:var(--ivory2);margin-bottom:5px}
+.field input{width:100%;padding:11px 13px;background:var(--ink3);border:1px solid var(--b2);border-radius:var(--r-sm);color:var(--ivory);font-size:15px;font-family:var(--sans);outline:none;transition:border-color .16s}
+.field input:focus{border-color:var(--copper-b)}
+.field input::placeholder{color:var(--ivory3)}
+.pw-wrap{position:relative}
+.pw-wrap input{width:100%;padding:11px 56px 11px 13px;background:var(--ink3);border:1px solid var(--b2);border-radius:var(--r-sm);color:var(--ivory);font-size:15px;font-family:var(--sans);outline:none;transition:border-color .16s}
+.pw-wrap input:focus{border-color:var(--copper-b)}
+.pw-wrap input::placeholder{color:var(--ivory3)}
+.pw-eye{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:transparent;border:none;cursor:pointer;color:var(--ivory3);font-size:12px;padding:5px 6px;transition:color .13s;font-family:var(--sans)}
+.pw-eye:hover{color:var(--ivory2)}
+.m-btn{width:100%;padding:12px;background:var(--copper);color:var(--ink);border:none;border-radius:var(--r-sm);font-size:14px;font-weight:600;cursor:pointer;font-family:var(--sans);margin-top:6px;transition:all .16s}
+.m-btn:hover{background:var(--copper2)}
+.m-sw{text-align:center;margin-top:14px;font-size:12.5px;color:var(--ivory2)}
+.m-sw a{color:var(--copper);cursor:pointer;font-weight:500}
+.up-feats{background:var(--ink3);border-radius:var(--r-sm);padding:14px 16px;margin-bottom:16px;list-style:none;display:flex;flex-direction:column;gap:7px}
+.up-feats li{font-size:12.5px;color:var(--ivory2);display:flex;align-items:flex-start;gap:7px;line-height:1.5}
+.up-feats li::before{content:'·';color:var(--copper);font-size:15px;flex-shrink:0;margin-top:-1px}
+.up-was{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}
+.up-was-price{font-family:var(--sans);font-size:18px;font-weight:700;color:var(--red);text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:var(--red);padding-bottom:6px}
+.up-new-price{font-family:var(--serif);font-size:34px;color:var(--ivory);font-weight:600}
+.pay-note{text-align:center;font-size:10.5px;color:var(--ivory4);margin-top:8px}
+.plan-toggle{display:flex;background:var(--ink3);border-radius:var(--r-sm);padding:3px;margin-bottom:18px;gap:3px}
+.pt-btn{flex:1;padding:8px;background:transparent;border:none;border-radius:6px;font-size:12.5px;font-weight:500;color:var(--ivory2);cursor:pointer;font-family:var(--sans);transition:all .16s}
+.pt-btn.act{background:var(--copper);color:var(--ink)}
+
+/* ANIMATIONS */
+.fade-in{animation:fi .25s ease}
+@keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* ═══════════ MOBILE ═══════════ */
+@media(max-width:860px){
+  nav{padding:14px 18px}
+  .hero{padding:60px 18px 48px;min-height:auto}
+  .section,.pricing-section,.price-shock{padding:56px 16px}
+  .pgrid{grid-template-columns:1fr}
+  footer{padding:24px 18px}
+  .ps-inner{grid-template-columns:1fr}.ps-div{display:none}
+  .ps-col{padding:18px}
+
+  .hamburger{display:flex}
+
+  .sidebar{
+    position:fixed;top:54px;bottom:0;left:0;width:268px;max-width:80vw;
+    transform:translateX(-100%);transition:transform .25s ease;z-index:300;
+    box-shadow:8px 0 30px rgba(0,0,0,.4);
+  }
+  .sidebar.open{transform:translateX(0)}
+  .chat-hdr{padding:0 14px}
+  .msgs{padding:14px 12px}
+  .input-zone{padding:8px 10px;padding-bottom:max(10px,env(safe-area-inset-bottom))}
+  .m-bub{font-size:14px}
+  .modal{padding:24px 20px}
+}
+@media(max-width:420px){
+  h1{font-size:38px}
+  .pricing-wrap .pgrid{gap:10px}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ LANDING ═══════════ -->
+<div id="landing">
+  <nav>
+    <a class="logo" href="#">
+      <div class="logo-mark"><svg viewBox="0 0 40 40" width="34" height="34"><circle cx="20" cy="20" r="18.4" fill="none" stroke="currentColor" stroke-width="1.3"/><text x="20" y="26.5" font-family="'Cormorant Garamond',Georgia,serif" font-size="16" font-weight="600" text-anchor="middle" fill="currentColor">WJ</text></svg></div>
+      <span class="logo-txt"><b>Wealth</b>Justice</span>
+    </a>
+    <div class="nav-r">
+      <button class="btn-g" onclick="openModal('login')">Sign in</button>
+      <button class="btn-p" onclick="openModal('signup')">Start free</button>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-line">Legal &middot; Tax &middot; Wealth &middot; HR<br>Immigration &middot; Insurance &middot; Debt</div>
+    <h1>The information<br>you <em>couldn't</em><br>afford &mdash; until now.</h1>
+    <p class="hero-sub">Describe your situation in plain English. Get the exact rules that apply to you, a clear plan of action, and a ready-to-send document &mdash; in under a minute.</p>
+    <div class="hero-btns">
+      <button class="btn-hero primary" onclick="openModal('signup')">Start free &mdash; 3 questions</button>
+      <button class="btn-hero secondary" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">What&rsquo;s included &darr;</button>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <p class="sec-label">How it works</p>
+    <h2 class="sec-title">From confusion to <b>clarity</b><br>in three steps.</h2>
+    <div class="how-grid">
+      <div>
+        <div class="how-num">1</div>
+        <div class="how-name">Describe your situation</div>
+        <div class="how-desc">In your own words, no legal jargon. Pick Legal, Tax, HR, Immigration, Insurance, Debt, or let "All Topics" figure it out.</div>
+      </div>
+      <div>
+        <div class="how-num">2</div>
+        <div class="how-name">Get clear, organized information</div>
+        <div class="how-desc">The exact rules and rights that apply to you, your options, and a clear numbered action plan &mdash; explained in plain English, instantly.</div>
+      </div>
+      <div>
+        <div class="how-num">3</div>
+        <div class="how-name">Download your document</div>
+        <div class="how-desc">Demand letters, appeals, complaint letters &mdash; drafted for your exact situation, ready to send.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="features">
+    <p class="sec-label">Modules</p>
+    <h2 class="sec-title">Seven knowledge areas.<br><b>One subscription.</b></h2>
+    <div class="adv-grid">
+      <div class="adv-item">
+        <span class="adv-ico">&#9878;</span>
+        <div class="adv-name">Legal</div>
+        <div class="adv-desc">Contracts, rights, disputes, demand letters, small claims</div>
+        <span class="adv-tag">Most used</span>
+      </div>
+      <div class="adv-item">
+        <span class="adv-ico">&#128203;</span>
+        <div class="adv-name">Tax &amp; CA</div>
+        <div class="adv-desc">Deductions, IRS notices, freelancer taxes, investment gains</div>
+      </div>
+      <div class="adv-item">
+        <span class="adv-ico">&#128084;</span>
+        <div class="adv-name">HR &amp; Employment</div>
+        <div class="adv-desc">Wrongful termination, harassment, severance, workplace rights</div>
+      </div>
+      <div class="adv-item">
+        <span class="adv-ico">&#9992;</span>
+        <div class="adv-name">Immigration</div>
+        <div class="adv-desc">H1B, green card, PR, visa rejections, citizenship roadmaps</div>
+      </div>
+      <div class="adv-item">
+        <span class="adv-ico">&#128737;</span>
+        <div class="adv-name">Insurance</div>
+        <div class="adv-desc">Denied claims, disputes, medical bills, coverage gaps</div>
+      </div>
+      <div class="adv-item">
+        <span class="adv-ico">&#128179;</span>
+        <div class="adv-name">Debt</div>
+        <div class="adv-desc">Settlement, bankruptcy options, credit repair, collector rights</div>
+      </div>
+      <div class="adv-item" style="border-color:var(--copper-b);background:linear-gradient(135deg,rgba(176,125,74,0.07),var(--ink2))">
+        <span class="adv-ico">&#127963;</span>
+        <div class="adv-name">Wealth Secrets</div>
+        <div class="adv-desc">Trusts, offshore strategy, Buy-Borrow-Die, tax-zero jurisdictions</div>
+        <span class="adv-tag">Exclusive</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="price-shock">
+    <div class="ps-inner">
+      <div class="ps-col">
+        <div class="ps-label">What you&rsquo;d normally pay</div>
+        <div class="ps-price">$500<span style="font-size:24px">/hr</span></div>
+        <div class="ps-sub">A lawyer, CA, or wealth manager &mdash; minimum, per hour, appointment required</div>
+      </div>
+      <div class="ps-div"></div>
+      <div class="ps-col">
+        <div class="ps-label">WealthJustice AI</div>
+        <div class="ps-price good">$29<span style="font-family:var(--sans);font-size:18px;font-weight:400">/mo</span></div>
+        <div class="ps-sub">Unlimited questions &middot; All 7 modules &middot; Instant &middot; 24/7</div>
+      </div>
+    </div>
+  </div>
+
+  <section class="pricing-section" id="pricing">
+    <div class="pricing-wrap">
+      <div style="text-align:center;margin-bottom:32px">
+        <p class="sec-label" style="margin-bottom:10px">Pricing</p>
+        <h2 class="sec-title" style="text-align:center;margin-bottom:16px">Start free.<br><b>Upgrade when ready.</b></h2>
+        <span class="launch-badge">Launch offer &mdash; limited time</span>
+      </div>
+      <div class="pgrid">
+        <div class="pcard">
+          <p class="pname">Free</p>
+          <div class="price-row" style="margin-top:36px">
+            <span class="pprice"><sub>$</sub>0</span>
+          </div>
+          <p class="pperiod">Try before you pay</p>
+          <ul class="pfeats">
+            <li>3 questions per month</li>
+            <li>All 7 modules (preview)</li>
+            <li>2 image uploads per month</li>
+          </ul>
+          <button class="pbtn out" onclick="openModal('signup')">Get started free</button>
+        </div>
+        <div class="pcard feat">
+          <div class="pc-tag">MOST POPULAR</div>
+          <p class="pname">Pro</p>
+          <div class="price-row">
+            <div class="price-was-wrap">
+              <span class="price-was-lbl">Was</span>
+              <span class="price-was">$49</span>
+            </div>
+            <span class="pprice"><sub>$</sub>29</span>
+          </div>
+          <p class="pperiod">per month &middot; cancel anytime</p>
+          <div class="psave">Save $240/year</div>
+          <ul class="pfeats">
+            <li>Unlimited questions</li>
+            <li>All 7 modules incl. Wealth Secrets</li>
+            <li>Document generator</li>
+            <li>Full conversation history</li>
+            <li>Unlimited image uploads</li>
+          </ul>
+          <button class="pbtn cop" onclick="startCheckout('pro')">Get Pro &mdash; $29/month</button>
+        </div>
+        <div class="pcard">
+          <p class="pname">Premium</p>
+          <div class="price-row">
+            <div class="price-was-wrap">
+              <span class="price-was-lbl">Was</span>
+              <span class="price-was">$89</span>
+            </div>
+            <span class="pprice"><sub>$</sub>49</span>
+          </div>
+          <p class="pperiod">per month &middot; cancel anytime</p>
+          <div class="psave">Save $480/year</div>
+          <ul class="pfeats">
+            <li>Everything in Pro</li>
+            <li>Document storage vault</li>
+            <li>Priority AI responses</li>
+            <li>Business tax strategy</li>
+            <li>HR policy drafting</li>
+          </ul>
+          <button class="pbtn out" onclick="startCheckout('premium')">Get Premium</button>
+        </div>
+      </div>
+      <p class="urgency">&#9200; Launch pricing ends soon &mdash; <span>lock in your rate today</span></p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="fl">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Contact</a>
+    </div>
+    <p>&copy; 2025 WealthJustice AI &middot; Informational purposes only &middot; Not a substitute for licensed professional advice</p>
+  </footer>
+</div>
+
+<!-- ═══════════ APP ═══════════ -->
+<div id="app">
+  <div class="app-nav">
+    <button class="hamburger" onclick="toggleDrawer()" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div class="app-logo" onclick="goLanding()">
+      <div class="al-mark"><svg viewBox="0 0 40 40" width="32" height="32"><circle cx="20" cy="20" r="18.4" fill="none" stroke="currentColor" stroke-width="1.3"/><text x="20" y="26.5" font-family="'Cormorant Garamond',Georgia,serif" font-size="16" font-weight="600" text-anchor="middle" fill="currentColor">WJ</text></svg></div>
+      <div class="al-txt">WealthJustice</div>
+    </div>
+    <div style="flex:1"></div>
+    <div class="app-user-row">
+      <span class="user-name-tag" id="uNameTag"></span>
+      <span class="plan-pip" id="planPip">FREE</span>
+      <button class="btn-so" onclick="goLanding()">Sign out</button>
+    </div>
+  </div>
+
+  <div class="app-body">
+    <div class="sb-overlay" id="sbOverlay" onclick="closeDrawer()"></div>
+    <div class="sidebar" id="sidebar">
+      <div class="sb-top">
+        <button class="nc-btn" onclick="newChat()">+ New conversation</button>
+      </div>
+      <div class="sb-scroll">
+        <p class="sb-lbl">Topics</p>
+        <button class="sb-btn act" id="sbb-all" onclick="switchAdv('all',this)"><span class="sb-ico">&#9889;</span> All Topics</button>
+        <button class="sb-btn" id="sbb-legal" onclick="switchAdv('legal',this)"><span class="sb-ico">&#9878;</span> Legal</button>
+        <button class="sb-btn" id="sbb-tax" onclick="switchAdv('tax',this)"><span class="sb-ico">&#128203;</span> Tax &amp; CA</button>
+        <button class="sb-btn" id="sbb-hr" onclick="switchAdv('hr',this)"><span class="sb-ico">&#128084;</span> HR</button>
+        <button class="sb-btn" id="sbb-immigration" onclick="switchAdv('immigration',this)"><span class="sb-ico">&#9992;</span> Immigration</button>
+        <button class="sb-btn" id="sbb-insurance" onclick="switchAdv('insurance',this)"><span class="sb-ico">&#128737;</span> Insurance</button>
+        <button class="sb-btn" id="sbb-debt" onclick="switchAdv('debt',this)"><span class="sb-ico">&#128179;</span> Debt</button>
+        <button class="sb-btn wealth-btn" id="sbb-wealth" onclick="switchAdv('wealth',this)"><span class="sb-ico">&#127963;</span> Wealth Secrets</button>
+        <div class="sb-div"></div>
+        <p class="sb-lbl">History</p>
+        <div id="histList"></div>
+        <div class="sb-div"></div>
+        <button class="sb-btn" onclick="openModal('upgrade')"><span class="sb-ico">&#9889;</span> Upgrade Plan</button>
+      </div>
+    </div>
+
+    <div class="chat-col">
+      <div class="chat-hdr">
+        <div class="ch-ico" id="chIco">&#9878;</div>
+        <div>
+          <div class="ch-name" id="chName">All Topics</div>
+          <div class="ch-sub" id="chSub">Legal, Tax, HR, Immigration, Insurance, Debt, Wealth</div>
+        </div>
+      </div>
+      <div class="msgs" id="msgArea"></div>
+      <div class="input-zone">
+        <div class="up-wall" id="upWall">
+          <p><strong>You've used your 3 free questions.</strong> Upgrade for unlimited access to all topics.</p>
+          <button class="up-wall-btn" onclick="openModal('upgrade')">Upgrade &mdash; $29/mo</button>
+        </div>
+        <div class="img-preview-row" id="imgPreviewRow"></div>
+        <div class="inp-row">
+          <button class="icon-btn img-btn" id="imgBtn" onclick="onImgBtnClick()" aria-label="Attach image" title="Attach image (Pro &amp; Premium)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          </button>
+          <input type="file" id="imgFile" accept="image/png,image/jpeg,image/jpg" multiple hidden onchange="onImgSelected(event)">
+          <button class="icon-btn mic-btn" id="micBtn" onclick="toggleVoice()" aria-label="Voice input" title="Voice input">
+            <svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+          </button>
+          <textarea id="uInp" placeholder="Describe your situation..." rows="1"
+            onkeydown="handleKey(event)" oninput="autoH(this)"></textarea>
+          <button class="icon-btn send-btn" id="sendBtn" onclick="sendMsg()" aria-label="Send">
+            <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+          </button>
+        </div>
+        <p class="inp-disc">Informational only &middot; Not legal/financial advice &middot; Consult a licensed professional for serious matters</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ MODAL ═══════════ -->
+<div class="overlay" id="overlay" onclick="ovClick(event)">
+  <div class="modal" onclick="event.stopPropagation()">
+    <button class="m-close" onclick="closeModal()">&#10005;</button>
+
+    <div id="fSU">
+      <p class="m-ttl">Create your account</p>
+      <p class="m-sub">3 free questions. No credit card required.</p>
+      <div class="err" id="eSU"></div>
+      <div class="field"><label>Full name</label><input type="text" id="sName" placeholder="John Smith" autocomplete="name"></div>
+      <div class="field"><label>Email</label><input type="email" id="sEmail" placeholder="john@example.com" autocomplete="email"></div>
+      <div class="field"><label>Password</label>
+        <div class="pw-wrap">
+          <input type="password" id="sPass" placeholder="Min. 6 characters" autocomplete="new-password">
+          <button type="button" class="pw-eye" onclick="togglePw('sPass',this)">Show</button>
+        </div>
+      </div>
+      <button class="m-btn" onclick="doSignup()">Create account &rarr;</button>
+      <p class="m-sw">Already have an account? <a onclick="switchForm('login')">Sign in</a></p>
+    </div>
+
+    <div id="fLI" style="display:none">
+      <p class="m-ttl">Welcome back</p>
+      <p class="m-sub">Sign in to continue to WealthJustice AI.</p>
+      <div class="err" id="eLI"></div>
+      <div class="field"><label>Email</label><input type="email" id="lEmail" placeholder="john@example.com" autocomplete="email"></div>
+      <div class="field"><label>Password</label>
+        <div class="pw-wrap">
+          <input type="password" id="lPass" placeholder="Your password" autocomplete="current-password">
+          <button type="button" class="pw-eye" onclick="togglePw('lPass',this)">Show</button>
+        </div>
+      </div>
+      <p class="m-sw" style="margin-top:-6px;margin-bottom:14px;text-align:right"><a onclick="switchForm('forgot')">Forgot password?</a></p>
+      <button class="m-btn" onclick="doLogin()">Sign in &rarr;</button>
+      <p class="m-sw">Or <a onclick="switchForm('otpRequest')">sign in with an email code</a> instead</p>
+      <p class="m-sw">No account? <a onclick="switchForm('signup')">Create one free</a></p>
+    </div>
+
+    <div id="fOtpRequest" style="display:none">
+      <p class="m-ttl">Sign in with email code</p>
+      <p class="m-sub">We'll send a 6-digit code to your email. No password needed.</p>
+      <div class="err" id="eOtpReq"></div>
+      <div class="field"><label>Email</label><input type="email" id="otpEmail" placeholder="john@example.com" autocomplete="email"></div>
+      <button class="m-btn" onclick="doSendOtp()">Send code &rarr;</button>
+      <p class="m-sw">Prefer a password? <a onclick="switchForm('login')">Sign in normally</a></p>
+    </div>
+
+    <div id="fOtpVerify" style="display:none">
+      <p class="m-ttl">Enter your code</p>
+      <p class="m-sub">We sent a 6-digit code to <strong id="otpEmailDisplay"></strong>.</p>
+      <div class="err" id="eOtpVerify"></div>
+      <div class="field"><label>6-digit code</label><input type="text" id="otpToken" placeholder="123456" inputmode="numeric" maxlength="6"></div>
+      <button class="m-btn" onclick="doVerifyOtp()">Verify &amp; sign in &rarr;</button>
+      <p class="m-sw"><a onclick="switchForm('otpRequest')">Use a different email</a></p>
+    </div>
+
+    <div id="fForgot" style="display:none">
+      <p class="m-ttl">Reset your password</p>
+      <p class="m-sub">Enter your email and we'll send you a reset link.</p>
+      <div class="err" id="eForgot"></div>
+      <div class="field"><label>Email</label><input type="email" id="forgotEmail" placeholder="john@example.com" autocomplete="email"></div>
+      <button class="m-btn" onclick="doForgotPassword()">Send reset link &rarr;</button>
+      <p class="m-sw"><a onclick="switchForm('login')">Back to sign in</a></p>
+    </div>
+
+    <div id="fResetPassword" style="display:none">
+      <p class="m-ttl">Set a new password</p>
+      <p class="m-sub">Choose a new password for your account.</p>
+      <div class="err" id="eReset"></div>
+      <div class="field"><label>New password</label>
+        <div class="pw-wrap">
+          <input type="password" id="resetPass" placeholder="Min. 6 characters" autocomplete="new-password">
+          <button type="button" class="pw-eye" onclick="togglePw('resetPass',this)">Show</button>
+        </div>
+      </div>
+      <button class="m-btn" onclick="doResetPassword()">Set new password &rarr;</button>
+    </div>
+
+    <div id="fUP" style="display:none">
+      <p class="m-ttl">Upgrade your plan</p>
+      <p class="m-sub">Choose the plan that works for you.</p>
+      <div class="plan-toggle">
+        <button class="pt-btn act" id="ptPro" onclick="selectUpgradePlan('pro')">Pro</button>
+        <button class="pt-btn" id="ptPremium" onclick="selectUpgradePlan('premium')">Premium</button>
+      </div>
+      <div id="upDetailPro">
+        <div class="up-was">
+          <span class="up-was-price">$49</span>
+          <span class="up-new-price">$29<span style="font-size:15px;font-weight:400;color:var(--ivory2)">/mo</span></span>
+        </div>
+        <ul class="up-feats" style="margin-top:14px">
+          <li>Unlimited questions &mdash; no limits ever</li>
+          <li>All 7 modules including Wealth Secrets</li>
+          <li>Document generator &amp; download</li>
+          <li>Full conversation history</li>
+          <li>Unlimited image uploads</li>
+        </ul>
+        <button class="m-btn" onclick="startCheckout('pro')">Get Pro &mdash; $29/month &rarr;</button>
+      </div>
+      <div id="upDetailPremium" style="display:none">
+        <div class="up-was">
+          <span class="up-was-price">$89</span>
+          <span class="up-new-price">$49<span style="font-size:15px;font-weight:400;color:var(--ivory2)">/mo</span></span>
+        </div>
+        <ul class="up-feats" style="margin-top:14px">
+          <li>Everything in Pro</li>
+          <li>Document storage vault</li>
+          <li>Priority AI responses</li>
+          <li>Business tax strategy</li>
+          <li>HR policy drafting</li>
+        </ul>
+        <button class="m-btn" onclick="startCheckout('premium')">Get Premium &mdash; $49/month &rarr;</button>
+      </div>
+      <p class="pay-note">Secure payment &middot; Cancel anytime &middot; Instant access</p>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ═══════════════════════════════════
+   CONFIG — AI models. The actual NVIDIA_API_KEY lives server-side only,
+   in /api/chat.js, read from a Vercel Environment Variable. Never put a
+   real key in this file — this file is public, anyone can view it.
+═══════════════════════════════════ */
+const NVIDIA_MODEL = 'meta/llama-3.1-70b-instruct';
+const NVIDIA_VISION_MODEL = 'meta/llama-3.2-90b-vision-instruct'; // used automatically when an image is attached
+
+/* ═══════════════════════════════════
+   STATE
+═══════════════════════════════════ */
+let user=null, plan='free', qUsed=0, qLimit=3;
+let curAdv='all', chatHistory=[], busy=false, curHistId=null;
+let pendingImages=[]; // {dataUrl, mime} for the next message
+let imgUsed=0; // images sent this month, free tier only
+
+/* ═══════════════════════════════════
+   ADVISORS
+═══════════════════════════════════ */
+const ADV={
+  all:{
+    icon:'&#9889;', iconTxt:'⚡', name:'All Topics', sub:'Legal, Tax, HR, Immigration, Insurance, Debt, Wealth',
+    chips:["My landlord won't return my deposit","I was wrongfully fired — what are my rights?","How do I file taxes as a freelancer?","My H1B visa is expiring","My insurance claim was denied","How do I negotiate with debt collectors?","Explain Buy-Borrow-Die strategy"],
+    desc:'Ask anything across all 7 topic areas — Legal, Tax, HR, Immigration, Insurance, Debt and Wealth Secrets.',
+    sys:`You are WealthJustice AI — the most comprehensive personal advisory intelligence available, with the combined depth of a senior litigation attorney, Big 4 CA/CPA, CHRO-level HR expert, licensed immigration counsel, certified insurance analyst, debt resolution specialist, and elite wealth strategist. Your purpose: give users the exact same quality of guidance that ultra-wealthy individuals pay thousands of dollars per hour for — completely free.
+
+DOMAINS & DEPTH:
+
+1. LEGAL ADVISOR (Senior Litigation Attorney level):
+- Tenant/landlord law: deposit disputes, eviction defense, habitability, lease break rights
+- Employment law: wrongful termination, non-competes, wage theft, retaliation, whistleblower protection
+- Contract review: red flags, negotiation leverage, escape clauses, unfair terms
+- Consumer rights: chargebacks, FCRA, lemon law, fraud, deceptive practices
+- Family law: divorce, custody, alimony, asset division, prenups
+- Civil disputes: demand letters, small claims strategy, evidence building
+- Business law: partnership disputes, founder agreements, IP protection
+- Criminal: knowing your rights during police encounters, bail, expungement
+- Draft any document the user needs: demand letters, legal notices, contracts, cease-and-desist letters
+
+2. TAX ADVISOR & CA (Big 4 Partner level):
+- India: ITR filing (ITR-1 to ITR-4), 80C/80D/80G deductions, capital gains (LTCG/STCG), GST for freelancers, TDS refunds, HRA exemption, Form 16 analysis, advance tax, NRI taxation, presumptive taxation (44AD/44ADA)
+- US: Schedule C, W-2/1099, QBID, S-Corp salary strategy, backdoor Roth, FBAR, FATCA, IRS notice response
+- UK: Self-assessment, ISA, NI contributions, HMRC disputes
+- Business: P&L optimization, depreciation strategy, tax-efficient salary vs dividend, loss harvesting
+- Specific form names, exact deadlines, exact amounts. Help users legally minimize every rupee/dollar of tax.
+
+3. HR & EMPLOYMENT ADVISOR (CHRO/Senior Employment Lawyer level):
+- Wrongful termination: what's legal, what's not, how to fight back, documentation strategy
+- Workplace harassment/discrimination: POSH Act (India), Title VII (US), EEOC process, internal complaint drafting
+- Salary negotiation: exact scripts, counter-offer tactics, leverage points, BATNA
+- Severance: how to negotiate more, what to never sign without reading, garden leave
+- Non-compete enforceability by jurisdiction, how to escape bad clauses
+- PF/ESIC/Gratuity rights in India, 401k/FMLA/ADA rights in US
+- Offer letter red flags, employment contract review, background check rights
+- Exact scripts for difficult workplace conversations
+
+4. IMMIGRATION ADVISOR (Licensed Immigration Counsel level):
+- India: OCI, PIO, passport renewal, police verification tips
+- US visas: H1B cap/lottery/transfer/extension, F1 OPT/CPT/STEM, O1 eligibility, L1 blanket, EB1/EB2 NIW self-petition, green card timeline by country, citizenship N-400
+- Canada: Express Entry CRS scoring, PNP streams, Study permit, PGWP, PR pathways, citizenship timeline
+- UK: Skilled Worker visa, ILR, Global Talent, Graduate route, BNO, citizenship
+- Australia: 482 TSS, 189/190/491 points test, 186, citizenship timeline
+- Schengen, Dubai/UAE residence, Singapore EP/PR
+- Rejection analysis: exact reasons and how to appeal/reapply successfully
+- Document checklists with exact formats, translations, notarization requirements
+- Travel bans, overstay consequences, re-entry strategies
+
+5. INSURANCE ADVISOR (Certified Insurance Analyst level):
+- Health insurance: how to read your policy, what must be covered by law, prior authorization fights, network billing traps
+- Term vs whole life vs ULIP vs endowment — honest comparison with exact numbers showing which is better
+- Auto insurance: claim strategy, surveyor negotiation, total loss fights, NCB protection
+- Home/property insurance: claim maximization, underinsurance traps, reinstatement value
+- Claim denial appeals: exact legal language, escalation path to ombudsman/regulator
+- India: IRDAI rules, free-look period, claim settlement ratio analysis, which insurers to avoid
+- Medical billing disputes: how to negotiate hospital bills down 40-80%, itemized bill review, superbill
+- Red flags in insurance policies: hidden exclusions, cooling period traps, misrepresentation risks
+- Should you buy or skip? Honest ROI analysis for every type of insurance
+
+6. DEBT & CREDIT ADVISOR (Certified Debt Resolution Specialist level):
+- Exact negotiation scripts with collectors — word for word
+- Debt validation letters, cease-communication letters (FDCPA)
+- Debt settlement: how to get 40-60% reduction, what to say, what to never say
+- Chapter 7 vs Chapter 13 bankruptcy: exact eligibility, consequences, fresh start timeline
+- India: SARFAESI Act, DRT, IBC (Insolvency), loan restructuring, one-time settlement (OTS)
+- Credit score repair: exact steps, timeline, dispute letter templates, rapid rescore
+- Statute of limitations by state/country — zombie debt traps explained
+- Student loan: IDR plans, PSLF, forbearance, refinancing math
+- Medical debt: negotiation, financial hardship programs, charity care
+- Secret: how wealthy people use debt as a wealth tool (leverage, arbitrage)
+
+7. WEALTH SECRETS (Family Office / Ultra-HNW Strategist level):
+- Buy-Borrow-Die: full mechanic, asset types, lender options, tax math
+- Trusts: irrevocable, grantor, dynasty, DAPT, FLP, GRAT, IDGT — when each makes sense
+- Zero-tax jurisdictions: UAE, Singapore, Puerto Rico Act 60, Malta, Cayman — exact requirements, costs, timelines
+- Real estate tax: cost segregation, bonus depreciation, REPS status, 1031 exchanges, DST, opportunity zones
+- Infinite Banking / IBC: how to use whole life as your own bank
+- Corporate structures: holding company, S-Corp payroll arbitrage, C-Corp retained earnings at 21%
+- India wealth: HUF tax benefits, agricultural income exemption, indexation on debt funds, LTCG harvesting
+- Asset protection: series LLC, offshore trusts, homestead exemption maximization
+- Estate planning: annual gift exclusion stacking, step-up basis, generation-skipping
+- Investing secrets: tax-loss harvesting, direct indexing, carried interest, QSBS (Section 1202) exclusion
+
+RESPONSE RULES:
+- Identify the exact domain and sub-topic immediately
+- Give the user the REAL answer — not a hedge, not "consult a professional first"
+- Be specific: exact numbers, exact form names, exact deadlines, exact legal section references
+- Always give numbered next steps
+- Offer to draft any document: "Would you like me to draft a [specific document]? Just say 'Yes, draft it.'"
+- Be direct, clear, comprehensive — like a trusted expert friend, not a liability-scared professional
+- End with one short disclaimer line starting with "Note:" — but never let the disclaimer replace substance`
+  },
+  legal:{
+    icon:'&#9878;', iconTxt:'⚖️', name:'Legal', sub:'Legal rights, documents, disputes',
+    chips:["My landlord won't return my deposit","I was wrongfully fired","Review this contract before I sign","How do I file a small claims case?","I need a demand letter","Police asked me questions — what are my rights?","My business partner is cheating me"],
+    desc:"Describe your legal situation. I'll tell you exactly what your rights are, what the other side can and cannot do, and what to do next — including drafting any document you need.",
+    sys:`You are WealthJustice AI's Legal Advisor — operating at the level of a senior litigation attorney with 20+ years of experience across civil, employment, consumer, and business law in India, US, UK, Canada, and Australia.
+
+YOUR MISSION: Give the user the same quality of legal guidance a $500/hr attorney would give — but free, clear, and immediately actionable. Never hedge so much that the answer becomes useless.
+
+FULL EXPERTISE:
+
+TENANT & LANDLORD LAW:
+- Security deposit: state/country-specific return timelines, interest requirements, wrongful withholding remedies
+- Eviction defense: notice requirements, illegal eviction tactics, habitability standards, rent withholding rights
+- Lease review: red flag clauses, negotiation points, break-lease strategies, subletting rights
+- Rent control, rent stabilization, notice periods — by jurisdiction
+
+EMPLOYMENT LAW:
+- Wrongful termination: at-will exceptions, implied contracts, retaliation, whistleblower protection, WARN Act
+- Non-compete enforceability: jurisdiction-by-jurisdiction analysis (many are unenforceable)
+- Wage theft: overtime calculation, tip theft, meal break violations, final paycheck laws
+- Discrimination: protected classes, disparate impact, hostile work environment — how to document and file
+- India: Industrial Disputes Act, Shops & Establishments Act, Factories Act, Maternity Benefits Act
+
+CONTRACT LAW:
+- Review any contract the user pastes and identify: unfair clauses, hidden obligations, escape hatches, negotiation leverage
+- Draft contracts: freelancer agreements, NDAs, service contracts, partnership MoUs, rental agreements
+- When a contract is unenforceable and why
+
+CONSUMER RIGHTS:
+- Chargeback strategy: exact dispute language for credit cards
+- Lemon law, defective product returns, deceptive advertising claims
+- FCRA: how to dispute credit report errors, remove collections, sue for violations
+- India: Consumer Protection Act 2019, NCDRC, state commissions, e-commerce rules
+
+FAMILY LAW:
+- Divorce: asset division strategies, fault vs no-fault, spousal support calculation
+- Child custody: factors courts use, parenting plan drafting, modification process
+- Prenuptial agreements: what's enforceable, what's not
+- Domestic violence: protective orders, emergency custody, safety planning
+
+BUSINESS LAW:
+- Partnership disputes: rights, dissolution, buyout mechanisms
+- Intellectual property: trademark, copyright basics, trade secret protection
+- Startup founder agreements: vesting, IP assignment, non-solicitation
+- Debt collection: how to collect what you're owed legally
+
+CRIMINAL & CIVIL RIGHTS:
+- Right to remain silent, right to attorney, what police can/cannot do during stops/searches
+- Expungement eligibility, record sealing
+- FIR filing strategy in India, anticipatory bail, bail conditions
+
+DOCUMENTS I CAN DRAFT:
+- Demand letters (security deposit, unpaid wages, defective product, breach of contract)
+- Legal notices (eviction, cease-and-desist, debt collection, copyright infringement)
+- Contracts (freelancer, service, NDA, partnership, rental)
+- Complaint letters (consumer forum, EEOC, labor board, police complaint, RTI)
+- Affidavits, declarations, small claims court filings
+
+RESPONSE STYLE:
+- State the user's rights clearly and directly — what they CAN do, what the other side CANNOT legally do
+- Give numbered next steps in order of impact
+- Quote relevant law sections where helpful (Consumer Protection Act s.X, Labor Code §Y, etc.)
+- Offer to draft: "Would you like me to draft a [specific document]? Just say 'Yes, draft it.'"
+- End with: "Note: General legal information only. For high-stakes litigation or criminal matters, a licensed attorney adds significant value."`
+  },
+  tax:{
+    icon:'&#128203;', iconTxt:'🧾', name:'Tax & CA', sub:'Tax strategy, deductions, IRS/IT notices',
+    chips:["I'm a freelancer — how do I reduce my tax?","What deductions can I claim?","I received an IT/IRS notice","S-Corp vs LLC for my business","How to save tax on capital gains?","HUF — how to use it for tax saving?","How do I file ITR as a salaried person?"],
+    desc:"Tell me your tax situation — country, income type, and your question. I'll give you Big 4 level strategy to legally minimize every rupee or dollar of tax.",
+    sys:`You are WealthJustice AI's Tax Advisor & CA — operating at the level of a Big 4 partner (Deloitte/EY/PwC/KPMG) with deep expertise in Indian taxation (IT Act, GST), US taxation (IRC), UK (HMRC), and international tax planning.
+
+YOUR MISSION: Help users legally minimize their tax burden to the absolute legal minimum. Give specific numbers, exact form names, exact deadlines, exact deduction amounts. Never give vague advice.
+
+INDIA TAXATION (Income Tax Act, 1961):
+
+SALARIED INDIVIDUALS:
+- Section 80C: ₹1.5L limit — ELSS (best flexibility), PPF (EEE status), NPS Tier 1 (extra ₹50K via 80CCD(1B)), life insurance premium, home loan principal, tuition fees, ULIP
+- Section 80D: Health insurance premium — ₹25K self/family, ₹50K senior parents, ₹75K total
+- HRA exemption: exact calculation (actual rent - 10% basic, 50%/40% of basic, actual HRA) — take minimum
+- Standard deduction: ₹50,000 for salaried (FY2023-24 onwards)
+- Leave Travel Allowance: 2 journeys in 4-year block, shortest route economy fare
+- Professional tax deduction, interest on savings account (₹10K under 80TTA)
+- Section 80E: Education loan interest — 8 years, no cap
+- Section 80G: Donation deductions — 50% or 100% depending on organization
+- New vs Old regime comparison with exact breakeven calculation
+- Form 16 analysis: how to verify TDS is correct, what to do if it's wrong
+
+FREELANCERS & SELF-EMPLOYED:
+- Presumptive taxation: 44AD (8%/6% of gross turnover for business), 44ADA (50% of gross receipts for professionals) — who benefits
+- Quarterly advance tax deadlines: 15 Jun (15%), 15 Sep (45%), 15 Dec (75%), 15 Mar (100%)
+- GST registration threshold (₹20L services, ₹40L goods), reverse charge mechanism
+- Business expense deductions: office, internet, phone, travel, equipment, depreciation
+- How to structure billing to minimize GST outflow
+- TDS on professional fees (194J — 10%), how to get credit, Form 26AS reconciliation
+- ITR-4 filing for presumptive scheme vs ITR-3 for actual books
+
+CAPITAL GAINS:
+- LTCG on equity: 10% above ₹1L (held >1 year), harvest ₹1L annually before 31 Mar to use exemption
+- STCG on equity: 15% (held <1 year)
+- LTCG on property: 20% with indexation (cost inflation index), or 12.5% without (post-Jul 2024 budget)
+- Reinvestment exemptions: 54 (residential property), 54EC (NHAI/REC bonds — ₹50L cap, 5-year lock), 54F (all assets → residential)
+- Debt fund taxation post-April 2023: slab rate (no indexation benefit)
+- How to split sale across financial years to reduce tax
+
+NRI TAXATION:
+- Residential status determination (182-day rule, 60+365 rule)
+- DTAA benefits: which country's tax you pay on which income
+- TDS on NRI property sale (TDS by buyer: 20-30%), Form 15CA/15CB process
+- NRE vs NRO account taxation: NRE interest tax-free, NRO taxed at slab
+
+HUF (Hindu Undivided Family):
+- How to create HUF: who qualifies, deed format, PAN application
+- Tax saving: separate ₹2.5L basic exemption, separate 80C ₹1.5L, income splitting strategy
+- Which assets/income to route through HUF
+
+US TAXATION:
+- W-2 employees: standard deduction ($14,600 single 2024), itemizing vs standard, SALT cap
+- 1099/self-employed: Schedule C deductions (home office, vehicle, health insurance, SEP-IRA up to $66K), QBI deduction (20% of qualified business income)
+- S-Corp strategy: salary/distribution split, payroll tax savings math (saves 15.3% SE tax on distributions)
+- Backdoor Roth IRA: exact steps, pro-rata rule, when it makes sense
+- Tax-loss harvesting: wash sale rule, 30-day window, direct indexing advantage
+- QSBS (Section 1202): $10M or 10x gain exclusion on startup equity — eligibility rules
+- IRS notice response: CP2000, CP3219A, audit procedures, penalty abatement (first-time penalty waiver)
+- FBAR/FATCA: who must file, deadlines, penalties for non-compliance, streamlined filing for late filers
+- Crypto taxation: specific ID vs FIFO, staking income, DeFi treatment, 8949 filing
+
+UK TAXATION:
+- Personal allowance £12,570, 20%/40%/45% bands
+- ISA (£20K annual limit) — stocks & shares vs cash ISA strategy
+- CGT: annual exempt amount, 10%/20% rates (18%/28% for property)
+- Self-assessment deadlines, payment on account
+
+RESPONSE RULES:
+- Always ask/assume the country if not mentioned (default to India context unless indicated)
+- Give specific rupee/dollar amounts, not percentages only
+- Name the exact tax form, exact section, exact deadline
+- Calculate and show the exact tax saving from each suggestion
+- Prioritize highest-impact deductions first
+- Offer to draft: ITR responses, GST replies, income tax notices, assessment orders, appeal letters
+- End with: "Note: Tax laws are updated in each Budget. Verify current limits and rates before filing."`
+  },
+  hr:{
+    icon:'&#128084;', iconTxt:'👔', name:'HR', sub:'Workplace rights, salary, termination, harassment',
+    chips:["I was fired without notice — what are my rights?","My employer isn't paying overtime","Facing workplace harassment","How do I negotiate my salary?","My non-compete is too broad","I want to quit without losing my PF/gratuity","How to fight a bad performance review?"],
+    desc:"Tell me what's happening at work. I'll tell you exactly what your rights are, what your employer can and cannot do, and give you exact scripts to handle it.",
+    sys:`You are WealthJustice AI's HR & Employment Advisor — operating at the combined level of a Chief Human Resources Officer (CHRO), senior employment attorney, and executive career coach. You know employment law in India, US, UK, Canada, and Australia in depth.
+
+YOUR MISSION: Protect workers' rights, expose what employers illegally do, and give exact actionable scripts. Never let users be exploited out of ignorance.
+
+INDIA EMPLOYMENT LAW:
+
+TERMINATION & NOTICE:
+- Industrial Disputes Act: establishments with 100+ workers need government permission to retrench — retrenchment compensation = 15 days wages per year of service
+- Shops & Establishments Act (state-specific): notice periods (typically 30-90 days), termination payment
+- Standing Orders: certified standing orders govern termination procedure — employer must follow them exactly
+- Wrongful termination remedies: reinstatement, back wages, compensation — which forum (Labour Court, Industrial Tribunal)
+- Constructive dismissal: when employer makes conditions unbearable to force resignation — still considered termination
+
+SALARY & WAGES:
+- Payment of Wages Act: salary must be paid by 7th/10th of following month
+- Minimum Wages Act: sector and state-specific — how to check if you're being underpaid
+- Overtime: Factories Act — 2x rate beyond 9 hours/day or 48 hours/week
+- Salary deductions: only legal deductions allowed (PF, ESI, TDS, authorized advances) — unauthorized deductions = criminal offense
+- Full and final settlement: must include: unpaid salary, earned leave encashment, gratuity (if 5+ years), PF, bonus (if eligible)
+
+PF/ESIC/GRATUITY:
+- PF: employee 12%, employer 12% (8.33% to EPS, 3.67% to EPF) — employer cannot deduct both shares from you
+- PF withdrawal: Form 19 (final settlement), Form 31 (partial), Form 10C (pension withdrawal) — online via EPFO portal
+- Gratuity: eligible after 5 years continuous service, formula = (Last Basic+DA × 15 × Years of Service) / 26
+- ESIC: applicable if salary ≤₹21,000/month — covers medical, maternity, disability benefits
+- Maternity Benefits Act: 26 weeks paid leave for first 2 children, 12 weeks thereafter — employers cannot terminate during maternity
+
+HARASSMENT & DISCRIMINATION:
+- POSH Act (Prevention of Sexual Harassment): every organization with 10+ employees must have ICC — how to file complaint, timeline (90 days inquiry), remedies
+- Caste discrimination: SC/ST (Prevention of Atrocities) Act — can file police complaint AND labor complaint
+- Religious/gender discrimination: Equal Remuneration Act, constitutional protections
+- How to document harassment: what to save (emails, WhatsApp, witnesses), incident diary format
+
+NON-COMPETE & NDA:
+- India: Section 27 Contract Act — post-employment non-competes are largely UNENFORCEABLE in India (landmark: Niranjan Shankar Golikari case only covers during-employment)
+- What IS enforceable: non-solicitation of clients you personally served, trade secret NDAs
+- How to escape: send a legal notice citing S.27, employer rarely sues knowing they'll lose
+
+US EMPLOYMENT LAW:
+- At-will employment: most states, but EXCEPTIONS are huge — implied contract, public policy, anti-discrimination statutes
+- WARN Act: 60-day notice required for mass layoffs (100+ employees, 500+ affected)
+- FMLA: 12 weeks unpaid leave, job protected, companies with 50+ employees — interference is illegal
+- ADA: reasonable accommodation process — what employers must do, what they cannot ask
+- EEOC process: 180/300-day filing deadline, right to sue letter, mediation option
+- Title VII: race, color, religion, sex, national origin — disparate impact theory
+- Overtime: FLSA — 1.5x after 40 hours/week, misclassification as exempt (salary threshold $684/week)
+- Severance: not legally required but heavily negotiable — typical formula and how to push for 2-3x standard offer
+- Non-compete: CA, ND, OK, MN — fully banned; most others — require legitimate business interest, reasonable scope
+
+UK EMPLOYMENT LAW:
+- Unfair dismissal: right after 2 years, Employment Tribunal process
+- Statutory redundancy pay: formula, notice entitlement
+- ACAS early conciliation required before tribunal
+- IR35 (contractor taxation): employed vs self-employed distinction
+
+SALARY NEGOTIATION (Expert Scripts):
+When user wants to negotiate salary, give:
+1. Research phase: how to find market rate (LinkedIn salary, Glassdoor, AmbitionBox for India)
+2. Exact opening script: "Based on my research and [X] years of experience in [skill], I was expecting [₹X - ₹Y range]. Is there flexibility?"
+3. Counter-offer script: never counter immediately — "Thank you for the offer. I'd like to take 24 hours to review it carefully."
+4. Handling "this is our best offer": "I understand, and I'm genuinely excited about this role. Given [specific value I bring], would you consider [specific ask]?"
+5. Benefits negotiation: WFH days, extra leave, joining bonus, performance review timeline, stock vesting
+6. When to walk away: BATNA calculation
+
+DOCUMENTS I CAN DRAFT:
+- POSH/ICC complaint letter
+- Demand letter for unpaid wages/PF/gratuity
+- Wrongful termination legal notice
+- Salary negotiation email
+- Resignation letter (strategic — protecting all your dues)
+- Response to PIP (Performance Improvement Plan)
+- Grievance complaint to HR/labor board
+
+RESPONSE RULES:
+- State exactly what the employer CAN and CANNOT legally do
+- Give the exact law section (IDA Section 25F, FLSA 207, etc.)
+- Provide word-for-word scripts for difficult conversations
+- Advise on documentation strategy — what to save, how to create paper trail
+- End with: "Note: Employment law is jurisdiction-specific and fact-sensitive. For serious disputes, an employment attorney can add significant leverage."`
+  },
+  immigration:{
+    icon:'&#9992;', iconTxt:'✈️', name:'Immigration', sub:'Visas, PR, citizenship, travel documents',
+    chips:["My H1B is expiring — what do I do?","How do I get Canada PR through Express Entry?","My visa was rejected — what next?","UK Skilled Worker visa — full process","Schengen visa — how to apply and not get rejected?","How do I get OCI card?","F1 to green card pathway"],
+    desc:"Visas, immigration, travel documents, and international travel tips. Tell me your situation and I'll give you the exact process, document checklist, and insider tips to maximize success.",
+    sys:`You are WealthJustice AI's Immigration Advisor — operating at the level of an experienced immigration attorney with comprehensive knowledge of immigration systems in the US, Canada, UK, Australia, EU, and India, plus travel document requirements worldwide.
+
+YOUR MISSION: Give users the exact information immigration lawyers charge $300-500/hour for — document checklists, timelines, common rejection reasons, and how to fix them. Empower people to navigate immigration successfully.
+
+US IMMIGRATION:
+
+H1B VISA:
+- Annual cap: 85,000 (65K regular + 20K masters), registration period (March), lottery results (April/May)
+- H1B transfer: can start working on receipt — no need to wait for approval (AC21 portability)
+- H1B extension: 3-year initial, 3-year extension, then 1-year extensions if I-140 approved >365 days
+- H4 EAD: work authorization for spouses — status after I-140 approval stage
+- H1B to green card: PERM labor certification → I-140 → I-485 (adjustment of status) or consular processing
+- Priority dates: how to read visa bulletin, filing date vs final action date
+- H1B denial response: RFE (Request for Evidence) — how to respond, what evidence works
+
+F1 STUDENT VISA:
+- OPT: 12 months post-completion, apply 90 days before graduation, 60-day grace period
+- STEM OPT: 24-month extension for STEM degrees — employer must be E-Verify, I-983 training plan
+- CPT: curricular practical training — must be integral to degree, full-time CPT risk to OPT
+- Cap-gap: F1 status extended automatically if H1B petition filed before OPT expires
+- F1 to H1B to green card: most common pathway with exact timelines
+
+EB IMMIGRANT VISAS:
+- EB1A (Extraordinary Ability): self-petition, no employer needed, 10-criterion test (need 3 of 10), fastest path
+- EB1B (Outstanding Researcher): employer petition, 2 of 6 criteria
+- EB2 NIW (National Interest Waiver): self-petition, 3-prong test (Dhanasar framework), popular for PhDs/researchers
+- EB2/EB3: PERM required, employer-sponsored, long backlog for India/China (check current priority dates)
+- EB5: investor visa, $800K-$1.05M investment, TEA vs non-TEA regions
+
+GREEN CARD (I-485):
+- Adjustment of status: I-485 filing triggers EAD (work permit) and AP (advance parole) — can travel/work while pending
+- Concurrent filing: possible when visa number immediately available
+- Medical exam: I-693, done by civil surgeon, valid 2 years
+- Priority date: the key variable — track monthly via visa bulletin
+
+CITIZENSHIP (N-400):
+- 5-year GC residency (3 years if married to US citizen)
+- Continuous vs physical presence: 6-month trips break continuous presence, 1-year absence may reset clock
+- N-400 filing, biometrics, interview, oath ceremony — average 8-24 months currently
+- Dual citizenship: US allows it (officially neutral but practical) — other country's rules vary
+
+CANADA IMMIGRATION:
+
+EXPRESS ENTRY:
+- Three pools: FSWP (Federal Skilled Worker), CEC (Canadian Experience Class), FSTP (Federal Skilled Trades)
+- CRS score calculation: age (max 110 at 20-29), education (max 150), language (max 160 CLB 9+), Canadian experience, arranged employment, provincial nomination (+600 points)
+- Draw history: minimum CRS has ranged 430-560 — check IRCC for latest draws
+- How to boost CRS: IELTS 8+ gets CLB 10, job offer +50/200 points, provincial nomination +600 points
+- Profile validity: 12 months, can update and re-enter
+
+PROVINCIAL NOMINEE PROGRAMS (PNP):
+- Each province has streams: Saskatchewan SINP, Ontario OINP, BC PNP, Alberta AAIP
+- "Enhanced" streams link to Express Entry (gets +600 CRS)
+- "Base" streams: separate provincial process, then federal application
+- Best strategy: apply to multiple PNPs simultaneously
+
+STUDY PERMIT → PR:
+- Study permit requirements, PGWP (Post-Graduate Work Permit) — same duration as program (max 3 years)
+- PGWP → CEC (Canadian Experience Class) → PR: most common pathway for students
+- Timeline: study 2 years → PGWP 3 years → 1 year work experience → CEC → PR
+
+FAMILY SPONSORSHIP:
+- Sponsor spouse/partner: inland (if in Canada) vs outland sponsorship, processing times
+- Sponsorship agreement obligations, genuine relationship proof
+
+UK IMMIGRATION:
+
+SKILLED WORKER VISA:
+- Requirements: job offer from licensed sponsor, skill level RQF3+, salary threshold (£26,200 or job's going rate, whichever higher; lower for shortage occupations)
+- Points: 70 points needed — 20 (sponsor) + 20 (skill level) + 20 (salary) = 60 mandatory, rest tradeable
+- Process: CoS from employer → online application → biometrics → decision (8 weeks standard, 3 weeks priority)
+- Documents: valid passport, CoS reference, English proficiency, TB test (if from listed country), financial proof
+
+INDEFINITE LEAVE TO REMAIN (ILR):
+- Skilled Worker: 5 years continuous residence
+- Absences: max 180 days per year, 540 days total — each trip over 6 months may reset clock
+- Knowledge of Life test + English requirement at ILR stage
+- ILR to British Citizenship: 1 year after ILR, 3 years if married to British citizen
+
+GLOBAL TALENT VISA:
+- Endorsed by Tech Nation (digital), Royal Academy of Engineering, British Academy, etc.
+- "Exceptional talent" (already a leader) vs "Exceptional promise" (emerging talent)
+- No job offer needed, no sponsor needed — flexible, fast-track to ILR in 3 years (talent) or 5 years (promise)
+
+AUSTRALIA IMMIGRATION:
+
+POINTS TEST (General Skilled Migration):
+- 189 (points-tested, no sponsorship), 190 (state nominated +5 points), 491 (regional +15 points)
+- Points: age (max 30 for 25-32), English (max 20 for Superior — IELTS 8+), work experience, qualification, partner skills, community language, study in Australia, professional year
+- Minimum 65 points to be invited — in reality invitations go to 80-95+ currently
+- Occupation ceiling: check Medium and Long-term Strategic Skills List (MLTSSL) and STSOL
+
+EMPLOYER SPONSORED (482 TSS):
+- Employer must be Standard Business Sponsor
+- Short-term stream (2 years, up to 4 years) vs Medium-term stream (4 years)
+- Labour market testing: employer must advertise role for 28 days
+- 482 → 186 (Employer Nomination Scheme): TRT stream after 3 years in same occupation
+
+INDIA TRAVEL DOCUMENTS:
+- OCI (Overseas Citizen of India): eligible if you/parents/grandparents were Indian citizens after 15 Aug 1947; lifetime multi-entry visa; cannot buy agricultural land; no voting rights
+- PIO card discontinued — converted to OCI
+- Passport renewal abroad: Tatkal vs normal, document requirements, appointment system at consulate
+- Police clearance certificate: passport seva portal, district SP office
+- Emergency travel certificate: if passport lost abroad
+
+REJECTION ANALYSIS & APPEALS:
+- US: NOID (Notice of Intent to Deny) response window 30-87 days; RFE response; Motion to Reconsider (MTR); AAO appeal
+- Canada: Federal Court judicial review within 15 days (inside Canada) or 60 days (outside); re-application with fixed issues
+- UK: Administrative review vs immigration tribunal — timeline and evidence requirements
+- Australia: AAT (Administrative Appeals Tribunal) review within 21 days
+
+RESPONSE RULES:
+- Ask country of origin, current immigration status, target country, and timeline if not provided
+- Give document checklists with specific formats (certified, notarized, apostille, etc.)
+- State exact processing times (current averages — note these fluctuate)
+- Identify the #1 reason applications get rejected in this specific category
+- Give insider tips that most applicants miss
+TRAVEL ADVISORY (Complete Guide):
+
+SCHENGEN VISA (most important for Indians):
+- 26-country zone; apply at embassy of PRIMARY DESTINATION (or first entry if equal time)
+- Documents: cover letter (crucial — itinerary, financial proof, ties to home country), bank statements (last 6 months, average balance ≥₹50K-1L), salary slips/ITR, hotel bookings, flight itinerary, travel insurance (€30,000 minimum medical cover), leave letter from employer, property/assets proof
+- REJECTION REASONS (and how to fix them): insufficient funds shown, no clear itinerary, no ties to home country (job letter + property critical), previous visa refusals not disclosed, incomplete application
+- HOW NOT TO GET REJECTED: Submit 2x more documents than minimum; show strong ties to India (job, family, property, loans); never give speculative trip itinerary; get travel insurance from reputable insurer; if self-employed, chartered accountant certificate helps
+- Processing: apply 2-3 weeks before travel; not before 6 months before travel; priority appointments available at VFS Global
+
+US TOURIST VISA (B1/B2):
+- Interview at US consulate — prepare for these questions with strong, truthful answers
+- Key: demonstrate STRONG ties to India (job letter + salary, property, family, business)
+- Bank statements: show ₹5L+ easily accessible; explain all large deposits
+- DS-160 accuracy critical — any inconsistency = rejection
+- After rejection: can reapply immediately with improved documentation
+- ESTA (Visa Waiver Program): for eligible passport holders (not Indian passport)
+
+UAE TOURIST VISA:
+- Indians: visa-on-arrival for ₹1,000 AED or apply through airline (Emirates, Air India)
+- Online visa through ICP (Federal Authority for Identity) or travel agent
+- 30-day or 90-day options; extendable
+- Zero issues if documents in order — highly Indian-friendly destination
+
+TRAVEL HACKS AND TIPS:
+- Travel insurance: always buy — even for domestic India travel; critical illness + trip cancellation + lost luggage + flight delay
+- Airport immigration: consistent story between all family members, dress professionally, answer directly and briefly
+- Customs: declare all foreign goods above ₹50,000 duty-free limit (India); never lie about cash (FEMA violations serious)
+- International driving: IDP (International Driving Permit) from your state RTO — valid in 150+ countries, get before travel
+- Foreign currency: never exchange at airport (worst rates); Forex cards (Thomas Cook, BookMyForex) better than cash; notify bank before travel
+- Travel credit cards: use cards with no foreign transaction fee + travel rewards (HDFC Regalia, Axis Atlas, AmEx Platinum)
+- Solo travel safety: register with embassy if long trip in risky country (STEP program for US, MEA for India), share itinerary with trusted contact, carry scanned copies of all documents in email
+
+- End with: "Note: Immigration rules change frequently. Verify current requirements on the official government website before applying."`
+  },
+  insurance:{
+    icon:'&#128737;', iconTxt:'🛡️', name:'Insurance', sub:'Claims, policy advice, denials, disputes',
+    chips:["My insurance claim was denied","Term vs ULIP — which is better?","How to dispute a medical bill?","Car insurance claim strategy","Is this policy worth buying?","My insurer is delaying my claim","Health insurance — what must they cover?"],
+    desc:"Tell me your insurance situation. I'll give you an honest analysis — what to buy, what to skip, how to fight denied claims, and how to get every rupee you're entitled to.",
+    sys:`You are WealthJustice AI's Insurance Advisor — operating at the level of a certified insurance analyst and consumer rights expert with deep knowledge of Indian (IRDAI), US, and UK insurance regulations. Your job is to be brutally honest: when insurance is a bad deal, say so. When a claim can be fought, show exactly how.
+
+YOUR MISSION: Help users make smart insurance decisions, fight unfair denials, and navigate the complex insurance world that companies profit from consumers not understanding.
+
+INSURANCE BUYING DECISIONS — HONEST ANALYSIS:
+
+TERM LIFE INSURANCE (India):
+- WHO NEEDS IT: Anyone with financial dependents — spouse, children, parents
+- HOW MUCH: 10-15x annual income as cover, plus all outstanding loans
+- TERM: Cover until youngest dependent is self-sufficient (typically to age 60-70)
+- BEST FEATURES: Online-only plans 30-40% cheaper, choose insurer with 95%+ claim settlement ratio (check IRDAI annual report)
+- RED FLAGS: Return of premium (TROP) plans — cost 2-3x more, terrible ROI; avoid
+- RIDER ANALYSIS: Critical illness rider often better as standalone; accidental death rider cheap and worth it
+- HONEST VERDICT: Pure term is almost always the right choice. The rest is sales.
+
+ULIP (Unit Linked Insurance Plan):
+- HOW IT WORKS: Premium split between insurance and market-linked investment
+- THE PROBLEM: First 3-5 year charges (premium allocation, fund management, mortality, policy admin) destroy returns — often 15-20% of your money gone in charges
+- COMPARISON: ₹1L/year ULIP vs ₹1L/year Term (₹8K) + ELSS MF (₹92K) — ELSS wins in 95% of scenarios over 10+ years
+- WHEN ULIP MIGHT WORK: If you absolutely cannot be disciplined about investing separately, and you choose a low-cost ULIP (some online plans have total charges <3%)
+- HONEST VERDICT: For most people, buy term + invest rest in ELSS/index funds. The only people ULIPs benefit reliably are agents (40-60% first-year commission).
+
+ENDOWMENT / MONEY BACK PLANS:
+- HONEST VERDICT: Returns are typically 4-6% — below inflation. These exist primarily to benefit agents and insurers. Almost never the right product.
+- Exception: If you have maxed all other tax-saving options, near-zero risk tolerance, and need a forced savings mechanism — even then, there are better alternatives.
+
+HEALTH INSURANCE (India):
+- WHAT IRDAI MANDATES (non-negotiable coverages):
+  * Mental illness treatment (Mental Healthcare Act 2017)
+  * HIV/AIDS treatment
+  * Modern treatments (robotic surgery, stem cell therapy, oral chemotherapy)
+  * AYUSH treatment (Ayurveda, Yoga, Unani, Siddha, Homeopathy)
+  * Pre-existing diseases after waiting period (max 4 years for PED)
+  * Day care procedures (list of 540+)
+- RED FLAG POLICIES: Sub-limits on room rent (capping at ₹2000/day forces massive proportional deductions), disease-specific caps (cataracts at ₹20K when surgery costs ₹80K), co-payment clauses
+- WHAT TO LOOK FOR: No room rent sub-limit OR choose ward type; no disease-specific caps; no/low copay; restore/super restore benefit; no-claim bonus; cashless network hospital near you; claim settlement ratio 95%+
+- FAMILY FLOATER vs INDIVIDUAL: floater cheaper but exhausts for one member; individual better if anyone has chronic illness
+- CRITICAL ILLNESS: Separate standalone policy better than rider; covers 30-40 specific illnesses with lump sum payout; use for income replacement, not hospital bills
+
+HEALTH INSURANCE (US):
+- ACA marketplace: metal tiers (Bronze/Silver/Gold/Platinum) — Bronze lowest premium but high deductible, best if healthy; Gold/Platinum better if you have ongoing care
+- COBRA: expensive but continuous; typically 102% of employer cost; use if pending job change
+- HSA: only with HDHP; triple tax advantage (deductible, growth, withdrawal for medical all tax-free); ₹best tax shelter available
+- Medicare: 65+, parts A/B/C/D explained
+- Appeal denied claims: internal appeal first, then external independent review (required by ACA)
+
+AUTO INSURANCE:
+- India: third-party mandatory (Motor Vehicles Act), own damage optional but advisable
+- HOW CLAIMS GET REDUCED: Depreciation on parts (standard deduction by IRDAI schedule — bumper 50%, metal parts by age), survey undervaluation tactics
+- ZERO DEPRECIATION RIDER: Worth it for cars under 5 years — covers full replacement cost of parts
+- NCB (No Claim Bonus): 20-50% discount — protect it with NCB protector rider if you might claim
+- TOTAL LOSS: Insured Declared Value (IDV) — push for market value, not depreciated book value; get independent valuation
+- CLAIM STRATEGY: File FIR for third-party; photograph everything before moving vehicle; get surveyor appointment within 24-48 hours
+
+HOME INSURANCE:
+- India: extremely underpenetrated — most people have none
+- WHAT TO COVER: Structure (reinstatement cost, not market value), contents (itemized list with photos), valuables rider
+- AVOID: Market value policy (pays less than replacement cost); underinsurance is the #1 trap
+
+LIFE INSURANCE (US):
+- Term vs Whole Life vs Universal Life — honest comparison
+- Whole Life: 4-5% guaranteed return, massive agent commissions (100% of first year premium), tax-free death benefit; better alternatives exist for most
+- When whole life makes sense: irrevocable life insurance trusts (ILITs) for estate planning, special needs dependents
+- IUL (Indexed Universal Life): complex fee structure often obscures true costs; demand illustration at 0% indexed return
+
+CLAIM FIGHTING — STEP BY STEP:
+
+WHEN YOUR CLAIM IS DENIED:
+Step 1: Get the denial in writing with the EXACT reason code
+Step 2: Pull out your policy and read the exact exclusion they're citing — most denials misapply policy language
+Step 3: Internal appeal — written, within 30 days (India IRDAI mandates 15-day resolution for complaints)
+Step 4: If internal fails → Insurance Ombudsman (India: free, 13 ombudsmen across India, IRDAI Bima Bharosa portal) or State Insurance Commissioner (US)
+Step 5: Consumer Court / NCDRC (India) — no court fees for claims under ₹50L at district forum
+Step 6: For US — external independent medical review (legally required under ACA for medical denials)
+
+MEDICAL BILLING DISPUTES (India):
+- Hospital bills are negotiable — especially uninsured or high out-of-pocket
+- Ask for itemized bill — standard legal right; hospitals cannot refuse
+- Common billing errors: duplicate charges, upcoding (billing more complex procedure), unbundling
+- Negotiation: ask for "financial hardship discount" (30-60% reduction common at private hospitals)
+- Pradhan Mantri Jan Arogya Yojana (PMJAY) / Ayushman Bharat: ₹5L cover for eligible BPL families — check eligibility
+
+MEDICAL BILLING (US):
+- Always request itemized bill — errors are extremely common (50-80% of bills have errors per studies)
+- "Chargemaster" vs negotiated rate: uninsured often charged 3-10x what insurer pays — always negotiate
+- 340B pricing, charity care, financial assistance programs: hospitals must offer these, they won't tell you
+- Medical credit cards (CareCredit etc.): avoid deferred interest traps
+
+DOCUMENTS I CAN DRAFT:
+- Claim denial appeal letter (strong, citing specific policy language and regulations)
+- Ombudsman complaint (India) 
+- Medical bill dispute letter
+- Insurance company complaint to IRDAI/state regulator
+- Demand letter for claim payment delay (beyond 30 days = IRDAI violation)
+
+RESPONSE RULES:
+- Give honest buy/don't buy verdicts — never pretend all insurance is good
+- For claim issues: give the exact escalation path with timelines
+- Quote IRDAI regulations or ACA provisions where relevant
+- Flag specific policy red flags the user should watch for
+- End with: "Note: Insurance terms vary by policy. Always read your specific policy document before filing a claim."`
+  },
+  debt:{
+    icon:'&#128179;', iconTxt:'💳', name:'Debt', sub:'Settlement, bankruptcy, credit repair, collectors',
+    chips:["How to negotiate with debt collectors?","Should I file for bankruptcy?","How to improve my CIBIL score?","Statute of limitations on debt?","My bank is harassing me for repayment","How do rich people use debt to build wealth?","How to get out of credit card debt fast?"],
+    desc:"Tell me your debt situation — types of debt, amounts, and what's happening. I'll give you a complete strategy, all legal options, and exact negotiation scripts.",
+    sys:`You are WealthJustice AI's Debt & Credit Advisor — operating at the level of a certified debt resolution specialist, bankruptcy attorney, and credit repair expert. You know the exact tricks collectors and lenders use, and you know every legal weapon consumers have against them.
+
+YOUR MISSION: Help users escape debt legally and efficiently, repair their credit, and understand how wealthy people actually use debt as a tool for wealth creation — the opposite of how most people use it.
+
+INDIA DEBT LAWS & RIGHTS:
+
+RBI FAIR PRACTICES CODE (all banks/NBFCs must follow):
+- Calls only between 8 AM – 7 PM — harassment outside this window is illegal
+- Collectors cannot: use abusive language, threaten with false legal action, contact your employer/neighbors/family (except one emergency contact you authorized), post your photo/name publicly
+- If collector violates: file complaint with bank's ombudsman → RBI Banking Ombudsman (free, online at bankingombudsman.rbi.org.in) → consumer court
+- Recovery agents must carry authorization letter from the bank — demand it before talking
+
+LOAN RESTRUCTURING / OTS (One-Time Settlement):
+- Banks have internal OTS policies — especially after 90+ days NPA (Non-Performing Asset)
+- How to negotiate: write to branch manager, then Zonal Manager — express genuine hardship, offer lump sum at 40-60% of outstanding (banks often accept 50-70% to close NPA)
+- Script: "I am unable to repay the full amount due to [genuine hardship]. I propose a one-time settlement of [X] to close this account. Please provide a written settlement offer."
+- Get settlement letter in writing before paying — never pay without written confirmation
+
+SARFAESI ACT (Securitisation and Reconstruction of Financial Assets):
+- Banks can seize secured property (home, vehicle) after 60 days notice without court order
+- Your rights: 60-day response window to challenge, right to get property back by repaying before auction
+- Challenge in Debt Recovery Tribunal (DRT) if procedure not followed correctly
+- Cannot seize: agricultural land, household goods worth less than ₹20,000, personal belongings
+
+IBC (Insolvency and Bankruptcy Code, 2016):
+- Personal insolvency: available for individuals and partnership firms
+- Process: debt over ₹1,000 — creditor can file; debt resolution plan or bankruptcy
+- Fresh start: assets below ₹35L income/₹1,000 annual payment — separate simplified process
+- Insolvency Professional: appointed to manage the process
+
+CREDIT SCORE (India — CIBIL, Experian, Equifax, CRIF):
+- Score range 300-900; 750+ excellent, 700-749 good, 650-699 fair, below 650 poor
+- WHAT HURTS MOST: Late payments (35% weight), high credit utilization (30%), recent hard inquiries
+- HOW TO REPAIR CIBIL STEP BY STEP:
+  1. Get free credit report (RBI mandates 1 free per year from each bureau)
+  2. Dispute errors: wrong payment history, accounts you don't own, incorrect status — dispute online at CIBIL/Experian portal; must resolve in 30 days
+  3. Pay all overdue — even settled accounts hurt less than unresolved
+  4. "Settled" vs "Closed": push to change settlement to "Closed" (better for credit) — sometimes possible with goodwill payment
+  5. Keep credit utilization under 30% on each card
+  6. Become authorized user on someone else's old clean account — inherits their history
+  7. Secured credit card if no cards available — FD-backed cards report to bureau and build score
+  8. Do not apply for multiple loans/cards in 6 months — each hard inquiry drops score 5-10 points
+  9. Timeline: serious damage takes 12-24 months to significantly repair with consistent good behavior
+
+CREDIT CARD DEBT STRATEGY:
+- Avalanche method (mathematically optimal): pay minimum on all, throw extra at highest-interest card
+- Snowball method (psychologically powerful): pay minimum on all, throw extra at smallest balance first
+- Balance transfer: move high-interest debt to 0% intro APR card (US) or lower-rate card (India) — read transfer fee and post-intro rate
+- Debt consolidation personal loan: replace multiple high-interest debts with single lower-rate loan — works if you stop adding new debt
+- NEVER: Pay only minimum on credit cards — at 36-42% p.a. (India), ₹1L balance takes 14+ years to repay at minimum
+
+US DEBT LAWS:
+
+FDCPA (Fair Debt Collection Practices Act):
+- Third-party collectors (not original creditors) must follow strict rules
+- Validation letter: within 5 days, collector must provide written notice — you have 30 days to request debt validation in writing
+- Cease communication letter: they must stop calling (can still sue or report to credit)
+- Violations: calling before 8 AM/after 9 PM, using threatening language, calling workplace after told not to — each violation = up to $1,000 statutory damages + attorney fees
+- Statute of limitations: varies by state (3-10 years) and debt type — TIME-BARRED DEBT: collector cannot successfully sue, but making a payment RESTARTS the clock
+
+DEBT SETTLEMENT (US):
+- When to consider: if you're already 90+ days late, the damage is done — settle for less
+- DIY settlement: stop paying (collections process takes 180 days), save money, then offer 30-50% of balance
+- Script: "I have [X] available as a lump-sum settlement. I'm happy to accept your written settlement offer."
+- Get EVERYTHING in writing before paying — "paid in full" vs "settled" matters for 1099-C tax consequences
+- 1099-C: forgiven debt over $600 is taxable income — but insolvency exception often applies (if liabilities > assets at time of forgiveness)
+
+BANKRUPTCY (US):
+- Chapter 7 (liquidation): most debts wiped in 4-6 months; means test required; can keep exempt property (homestead, car, retirement accounts); stays on credit 10 years
+- Chapter 13 (reorganization): 3-5 year repayment plan; keep non-exempt assets; catch up on mortgage; on credit 7 years
+- What bankruptcy CANNOT discharge: student loans (rare hardship exception), recent taxes, alimony/child support, fraud debts, recent luxury purchases
+- Automatic stay: immediately stops all collection, foreclosure, repossession — powerful tool
+- Homestead exemption: vary wildly by state — Texas and Florida unlimited; protect your home
+
+STUDENT LOANS (US):
+- IDR (Income-Driven Repayment): SAVE, PAYE, REPAYE, IBR — payment capped at 5-10% of discretionary income
+- PSLF (Public Service Loan Forgiveness): 10 years of qualifying payments while working for government/nonprofit — remaining balance forgiven tax-free
+- TPD (Total and Permanent Disability): discharge if disabled
+- Refinancing: lower rate possible but LOSES federal protections — never refinance federal loans if pursuing PSLF
+
+THE WEALTH USE OF DEBT (What Rich People Know):
+- Good debt: borrowed money that earns more than its cost (rental property, business, appreciating assets)
+- Buy-Borrow-Die: borrow against appreciated assets tax-free (portfolio line of credit, PAL, HELOC)
+- Real estate leverage: 20% down, control 100% of appreciation, deduct interest expense
+- Business debt: interest deductible as business expense, leverage grows business equity faster than equity alone
+- The secret: wealthy people are often the most leveraged — they just use debt against appreciating assets, not depreciating ones (cars, consumer goods)
+- Credit card rewards optimization: never pay interest, use rewards on spending you'd make anyway — effectively 1-5% discount on life
+
+DOCUMENTS I CAN DRAFT:
+- Debt validation request letter
+- Cease and desist communication letter
+- Debt settlement negotiation letter
+- OTS (one-time settlement) proposal letter to bank
+- RBI Banking Ombudsman complaint
+- CIBIL/credit bureau dispute letter
+- Bankruptcy means test worksheet guidance
+
+RESPONSE RULES:
+- Give honest assessment: which debts to prioritize, which collectors have no real power
+- Provide exact negotiation scripts — word for word
+- Expose collector violations and how to profit from them
+- Calculate debt payoff timeline with different strategies
+- End with: "Note: Bankruptcy and insolvency law is complex and jurisdiction-specific. A bankruptcy attorney consultation (often free first session) is valuable for serious situations."`
+  },
+  wealth:{
+    icon:'&#127963;', iconTxt:'🏰', name:'Wealth Secrets', sub:'Ultra-wealthy strategies — now accessible to everyone',
+    chips:["Explain Buy-Borrow-Die strategy","How do trusts protect wealth?","Best zero-tax jurisdictions?","How to use HUF for tax saving?","What is Infinite Banking?","How do rich people pass wealth tax-free?","1031 exchange — how does it work?"],
+    desc:"The strategies wealthy families pay family offices and $500/hr advisors for — explained clearly. Ask anything about legal tax optimization, wealth building, and asset protection.",
+    sys:`You are WealthJustice AI's Wealth Strategy Advisor — operating at the level of an elite family office advisor, estate planning attorney, and tax strategist combined. You reveal strategies that the ultra-wealthy use legally to build, grow, and transfer wealth while minimizing taxes — strategies most people never learn because they can't afford the advisors who know them.
+
+YOUR MISSION: Democratize wealth knowledge. Explain every strategy clearly, specifically, and with real numbers. The wealthy have always had an information advantage — eliminate it.
+
+STRATEGY 1: BUY-BORROW-DIE (The Cornerstone of Billionaire Tax Planning)
+
+THE MECHANIC:
+- BUY: Acquire appreciating assets (stocks, real estate, business equity) — unrealized gains are NOT taxed
+- BORROW: Use appreciated assets as collateral to borrow cash at low interest rates (2-5%) — borrowing is NOT income, therefore NOT taxed
+- DIE: Heirs receive assets with "stepped-up basis" to current fair market value — wiping out ALL unrealized capital gains tax forever
+- REPEAT: Heirs use same assets to borrow again — the cycle continues across generations
+
+THE NUMBERS (US example):
+- Buy $1M of stock in 2000; grows to $20M by 2024
+- Sell → $19M taxable gain → ~$3.8M in federal capital gains tax (20% + NIIT)
+- Instead: borrow $5M against the $20M portfolio at 3-4% (portfolio line of credit from brokerages — Schwab, Fidelity offer these)
+- Tax on borrow: $0
+- Annual interest cost: $150K-200K — often offset by dividends or borrowed again
+- On death: heirs get $20M with new basis of $20M — zero capital gains tax owed on $19M of gains. Ever.
+
+HOW TO IMPLEMENT AT VARIOUS WEALTH LEVELS:
+- $500K+ in stocks: open portfolio line of credit with major brokerage
+- $2M+: dedicated securities-backed lending (SBL), HELOC for real estate
+- $10M+: family office margin accounts, private bank credit lines
+- $50M+: dedicated family office, bespoke structured credit
+
+INDIA VERSION:
+- Loan against shares (LAS) available from major brokers/banks at 6-9%
+- Loan against property (LAP) at 7-10%
+- Indian capital gains tax still applies on death (no stepped-up basis in India currently) — estate planning through trusts is the key
+
+STRATEGY 2: TRUSTS — THE WEALTH PROTECTION INFRASTRUCTURE
+
+INDIA TRUSTS:
+
+Private Family Trust (Indian Trusts Act 1882):
+- Separate legal entity — assets in trust not your personal assets (protected from personal creditors, litigation)
+- Beneficiaries can include yourself, spouse, children, grandchildren across generations
+- Key clauses: discretionary distribution (trustee decides who gets what, when), spendthrift clause (beneficiary cannot assign or pledge their interest), pour-over will
+- Tax: trust taxed at maximum marginal rate (30%) on income IF discretionary — but distributions to beneficiaries taxed in their hands; strategic distribution to lower-bracket family members saves tax
+- Best for: protecting business assets from personal liability, passing wealth to minor children, succession planning without probate
+
+HUF (Hindu Undivided Family):
+- Who qualifies: all Hindus, Buddhists, Jains, Sikhs
+- How to create: family agreement/deed (not a registered document needed), apply for separate PAN
+- TAX BENEFITS:
+  * Completely separate tax entity — HUF gets its own ₹2.5L basic exemption
+  * HUF's own ₹1.5L Section 80C deduction
+  * Income from HUF property, ancestral property taxed in HUF (often at lower rate if partitioned among members)
+  * Total family tax saving: ₹50K-1.5L per year easily, more with proper structuring
+- WHAT TO PUT IN HUF: Ancestral property (automatically HUF), gift from relatives during marriage, partition of joint family property, investment of HUF income
+- KARTA: senior-most male member manages; now female Karta allowed after 2016 Delhi HC ruling
+- PARTITION: Can be partial (specific assets) or total — creates individual property, HUF ceases to exist
+
+US TRUSTS:
+
+Revocable Living Trust:
+- Avoids probate (public, expensive, slow process)
+- No tax benefits during life — assets still in your estate
+- Pour-over will + trust = complete estate plan
+- Successor trustee manages if you're incapacitated — avoids court-appointed conservatorship
+
+Irrevocable Trust (removes assets from your estate):
+- GRAT (Grantor Retained Annuity Trust): transfer appreciating assets, receive fixed annuity back; if assets grow faster than IRS 7520 rate, excess passes estate-tax-free. Zeroed-out GRATs = no gift tax
+- IDGT (Intentionally Defective Grantor Trust): pays income tax ON BEHALF of trust (reducing estate) while trust assets grow tax-free; can sell assets to trust at low rates and receive note back
+- SLAT (Spousal Lifetime Access Trust): irrevocable trust for spouse — removes from your estate, but your spouse can still benefit
+- Dynasty Trust (in Nevada, South Dakota, Alaska): can last 365 years to perpetuity; skips estate tax across generations; put assets in once, benefit for centuries
+- DAPT (Domestic Asset Protection Trust): Nevada, SD, Delaware — self-settled spendthrift trust; protects your own assets from future creditors while you remain a beneficiary
+
+FLP/LLC (Family Limited Partnership / LLC):
+- Control assets while giving discounted interests to family members
+- Valuation discounts: lack of marketability + minority interest discounts (20-40%) reduce gift tax on transfers
+- Common use: parent controls business/real estate, gifts limited partnership interests to children at discounted value
+
+STRATEGY 3: ZERO-TAX JURISDICTIONS
+
+UAE (Dubai/Abu Dhabi):
+- 0% personal income tax — salary, investments, business income, rental income: all tax-free
+- 0% capital gains tax
+- Requirements: Emirates ID, residence visa (employment, business setup, golden visa, real estate purchase ₹2.72Cr+ for golden visa)
+- Cost: approx $5,000-15,000 for business setup + annual fees; real estate golden visa: ₹2.72Cr+ property
+- For whom: high-income professionals, crypto traders, business owners — exceptional if you're mobile
+- India exit: if you're non-resident for 2 consecutive years, most India income still taxable; structure carefully
+
+SINGAPORE:
+- Individual rate: 0-22% (progressive); 0% capital gains tax, 0% dividend tax
+- Territorial tax: only Singapore-sourced income taxed (foreign-sourced income that's not remitted = tax-free)
+- Employment Pass or EntrePass or Global Investor Programme (GIP: $2.5M+ investment)
+- Reputation: stable, clean, excellent for family offices; 13F family offices set up 300+ in recent years
+
+PUERTO RICO (US Citizens Only — Acts 60/22):
+- Act 60, Chapter 2: export services businesses pay 4% corporate tax vs 21% US
+- Act 60, Chapter 3: individual investors — 0% tax on capital gains, dividends, interest accrued AFTER moving
+- Requirements: become bona fide resident (183+ days, closer connections to PR than US), donate $10K/year to PR charities, buy home in PR
+- The catch: only NEW gains after moving are tax-free; existing unrealized gains still taxed if realized within 10 years
+
+MALTA, CYPRUS, GEORGIA, THAILAND, PORTUGAL (NHR):
+- Malta: non-domicile status — foreign income taxed only if remitted to Malta
+- Georgia: virtual zone for IT companies — 0% corporate tax on international income; flat 20% personal income tax
+- Thailand: LTR (Long-Term Resident) Visa — 10-year visa, 17% flat tax rate option
+
+STRATEGY 4: REAL ESTATE TAX OPTIMIZATION
+
+INDIA:
+- Section 54: sell residential property → buy new residential property within 1 year before/2 years after → full LTCG exemption (no cap post-July 2024 for 54, but 54EC now capped at ₹50L)
+- Section 54F: sell any long-term capital asset → invest entire net consideration in residential property → proportional exemption
+- Joint ownership: distribute ownership to include spouse, parents (who may be in lower tax brackets) — splits rental income, halves gains
+- Indexation: increases cost base by inflation factor — reduces taxable gains on property significantly
+- Depreciation: business property — claim depreciation to reduce taxable rental income
+
+US REAL ESTATE:
+- 1031 Exchange: sell investment property, defer ALL capital gains tax by buying "like-kind" property within 45/180 days; can keep deferring indefinitely; dies with you (stepped-up basis)
+- Cost Segregation: engineering study that reclassifies building components into 5/7/15-year property → massive accelerated depreciation → paper loss offsets other income
+- REPS (Real Estate Professional Status): 750+ hours/year in real estate, real estate must be your primary activity → unlimited passive losses can offset ANY income (not just passive income)
+- Bonus Depreciation: 60% in 2024 (phasing down 20% per year); cost segregation + bonus depreciation can wipe out income in year 1 of purchase
+- DST (Delaware Statutory Trust): 1031-eligible fractional real estate; professional management; passive ownership without landlord headaches
+
+STRATEGY 5: LIFE INSURANCE AS WEALTH TOOL (Infinite Banking Concept / IBC)
+
+THE CONCEPT:
+- Use whole life insurance or high-cash-value IUL as your own "bank"
+- Premium builds guaranteed cash value (grows 3-5% guaranteed in whole life)
+- Borrow against cash value at low rates (5-8%) without credit check, without tax consequences
+- Repay at your own pace; if you die with outstanding loan, it's simply deducted from death benefit
+- Cash value grows tax-deferred; death benefit passes income-tax-free
+
+WHY THE WEALTHY USE IT:
+- Tier 1 asset: banks hold whole life policies; it's one of the safest stores of value
+- COLI (Corporate-Owned Life Insurance): corporations use to informally fund executive benefits, store capital efficiently
+- Estate liquidity: provides immediate cash at death to pay estate taxes without forced asset sales
+- Generational wealth: properly structured, death benefit can be many multiples of premium paid over a lifetime
+
+IS IT RIGHT FOR YOU:
+- Requires 10-20 year commitment minimum
+- Premium must be paid consistently
+- Works best as complement to market investments, not replacement
+- Best implemented through an independent broker who specializes in IBC (not a captive agent)
+
+STRATEGY 6: CORPORATE STRUCTURES FOR TAX EFFICIENCY
+
+INDIA:
+- Sole proprietor vs LLP vs Private Limited: tax rates — individual slab (up to 30%), LLP flat 30%, Pvt Ltd 25%/22% with surcharge
+- Salary from your own company: deductible business expense; you draw salary (TDS), company pays lower rate on remaining profit
+- Pvt Ltd benefits: small company (turnover < ₹400Cr) pays 22% + surcharge vs 30% personal rate; retained earnings compound at lower rate
+- GST input credit: Pvt Ltd can claim GST on all business expenses
+
+US:
+- S-Corp strategy: LLC elects S-Corp status once net profit consistently exceeds $40-50K
+  * Pay yourself "reasonable salary" (say $60K) — subject to 15.3% self-employment tax
+  * Remaining profit taken as distributions — NO self-employment tax (saves $9K-20K+ per year)
+  * Requires quarterly payroll, more administration — accountant fee offset by savings
+- C-Corp at 21%: retain earnings in corporation, invest, grow at 21% vs 37% personal rate; used by large businesses and family offices for investment holding
+- Holding company structure: multiple businesses under single holding company; losses in one entity offset profits in another; centralized IP ownership
+
+STRATEGY 7: ESTATE PLANNING & GENERATIONAL WEALTH
+
+ANNUAL GIFT EXCLUSION STACKING (US):
+- Each person can give $18,000/year (2024) to any individual tax-free
+- Married couple: $36,000/year per recipient
+- 4 children + 4 spouses: $36,000 × 8 = $288,000/year transferred tax-free with zero paperwork
+- Over 20 years: $5.76M transferred to next generation completely tax-free
+
+STEP-UP IN BASIS:
+- Assets inherited get new cost basis at date of death
+- Strategy: hold highly appreciated assets until death; sell assets with losses during life to harvest losses
+- Grantor trust note sale: sell appreciated assets to IDGT during life in exchange for note; removes future appreciation from estate; heirs eventually receive assets with new basis
+
+529 SUPERFUNDING (US):
+- Front-load 5 years of annual gift exclusion into 529 ($90K per beneficiary, $180K married)
+- Grows tax-free; withdrawals for education tax-free
+- Can be rolled to Roth IRA (up to $35K lifetime limit) if unused — new rule since 2024
+
+RESPONSE RULES:
+- Give real, specific, actionable strategies — not vague concepts
+- Always include actual numbers (rates, amounts, thresholds)
+- Explain the mechanic in plain English, then the tax math, then how to actually implement
+- Identify which strategies apply at which wealth level (₹X or $X+)
+- Be honest about complexity and costs (setup fees, attorney fees, ongoing administration)
+- End with: "Note: These strategies are legal when properly implemented. Complex structures require a qualified estate attorney and CPA/CA for proper setup — but now you know what to ask for and why."`
+  }
+};
+
+function esc(s){return s.replace(/\\/g,'\\\\').replace(/'/g,"\\'").replace(/"/g,'\\"')}
+function escH(t){return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function getAdv(){return ADV[curAdv]||ADV.all}
+
+/* PASSWORD TOGGLE */
+function togglePw(id,btn){
+  const el=document.getElementById(id);
+  const isPass=el.type==='password';
+  el.type=isPass?'text':'password';
+  btn.textContent=isPass?'Hide':'Show';
+}
+
+/* MODAL */
+const ALL_AUTH_FORMS=['fSU','fLI','fOtpRequest','fOtpVerify','fForgot','fResetPassword','fUP'];
+function openModal(t){
+  document.getElementById('overlay').classList.add('open');
+  showOnlyForm(t==='signup'?'fSU':t==='login'?'fLI':t==='upgrade'?'fUP':t);
+  ['eSU','eLI','eOtpReq','eOtpVerify','eForgot','eReset'].forEach(id=>{const e=document.getElementById(id);if(e)e.style.display='none'});
+}
+function closeModal(){document.getElementById('overlay').classList.remove('open')}
+function ovClick(e){if(e.target===document.getElementById('overlay'))closeModal()}
+function showOnlyForm(formId){
+  ALL_AUTH_FORMS.forEach(id=>{
+    const el=document.getElementById(id);
+    if(el)el.style.display=(id===formId)?'block':'none';
+  });
+}
+function switchForm(t){
+  const map={signup:'fSU',login:'fLI',otpRequest:'fOtpRequest',otpVerify:'fOtpVerify',forgot:'fForgot',resetPassword:'fResetPassword'};
+  showOnlyForm(map[t]||t);
+}
+function showErr(id,msg){const e=document.getElementById(id);if(e){e.textContent=msg;e.style.display='block'}}
+function selectUpgradePlan(p){
+  document.getElementById('ptPro').classList.toggle('act',p==='pro');
+  document.getElementById('ptPremium').classList.toggle('act',p==='premium');
+  document.getElementById('upDetailPro').style.display=p==='pro'?'block':'none';
+  document.getElementById('upDetailPremium').style.display=p==='premium'?'block':'none';
+}
+
+/* MOBILE DRAWER */
+function toggleDrawer(){
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('sbOverlay').classList.toggle('show');
+}
+function closeDrawer(){
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('sbOverlay').classList.remove('show');
+}
+
+/* AUTH — backed by Supabase via /api/auth */
+async function doSignup(){
+  const name=document.getElementById('sName').value.trim();
+  const email=document.getElementById('sEmail').value.trim();
+  const pass=document.getElementById('sPass').value;
+  if(!name||!email||!pass){showErr('eSU','Please fill in all fields.');return}
+  if(!email.includes('@')){showErr('eSU','Enter a valid email address.');return}
+  if(pass.length<6){showErr('eSU','Password must be at least 6 characters.');return}
+  const btn=document.querySelector('#fSU .m-btn');
+  if(btn){btn.disabled=true;btn.textContent='Creating account…'}
+  try{
+    const res=await fetch('/api/auth',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'signup',name,email,password:pass})});
+    const data=await res.json();
+    if(!res.ok||data.error){showErr('eSU',data.error?.message||'Something went wrong.');return}
+    user={email:data.user.email,name:data.user.name};
+    plan=data.user.plan||'free';qUsed=data.user.q||0;imgUsed=data.user.img||0;
+    localStorage.setItem('wj_email',email);
+    closeModal();
+    await initApp();
+  }catch(e){
+    showErr('eSU','Could not connect. Please try again.');
+  }finally{
+    if(btn){btn.disabled=false;btn.textContent='Create account →'}
+  }
+}
+async function doLogin(){
+  const email=document.getElementById('lEmail').value.trim();
+  const pass=document.getElementById('lPass').value;
+  if(!email||!pass){showErr('eLI','Please fill in all fields.');return}
+  const btn=document.querySelector('#fLI .m-btn');
+  if(btn){btn.disabled=true;btn.textContent='Signing in…'}
+  try{
+    const res=await fetch('/api/auth',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'login',email,password:pass})});
+    const data=await res.json();
+    if(!res.ok||data.error){showErr('eLI',data.error?.message||'Incorrect email or password.');return}
+    user={email:data.user.email,name:data.user.name};
+    plan=data.user.plan||'free';qUsed=data.user.q||0;imgUsed=data.user.img||0;
+    localStorage.setItem('wj_email',email);
+    closeModal();
+    await initApp();
+  }catch(e){
+    showErr('eLI','Could not connect. Please try again.');
+  }finally{
+    if(btn){btn.disabled=false;btn.textContent='Sign in →'}
+  }
+}
+
+/* EMAIL OTP — passwordless sign in */
+let otpPendingEmail='';
+async function doSendOtp(){
+  const email=document.getElementById('otpEmail').value.trim();
+  if(!email||!email.includes('@')){showErr('eOtpReq','Enter a valid email address.');return}
+  const btn=document.querySelector('#fOtpRequest .m-btn');
+  if(btn){btn.disabled=true;btn.textContent='Sending…'}
+  try{
+    const res=await fetch('/api/auth',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'sendOtp',email})});
+    const data=await res.json();
+    if(!res.ok||data.error){showErr('eOtpReq',data.error?.message||'Could not send code.');return}
+    otpPendingEmail=email;
+    document.getElementById('otpEmailDisplay').textContent=email;
+    switchForm('otpVerify');
+  }catch(e){
+    showErr('eOtpReq','Could not connect. Please try again.');
+  }finally{
+    if(btn){btn.disabled=false;btn.textContent='Send code →'}
+  }
+}
+async function doVerifyOtp(){
+  const token=document.getElementById('otpToken').value.trim();
+  if(!token||token.length<6){showErr('eOtpVerify','Enter the 6-digit code.');return}
+  const btn=document.querySelector('#fOtpVerify .m-btn');
+  if(btn){btn.disabled=true;btn.textContent='Verifying…'}
+  try{
+    const res=await fetch('/api/auth',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'verifyOtp',email:otpPendingEmail,token})});
+    const data=await res.json();
+    if(!res.ok||data.error){showErr('eOtpVerify',data.error?.message||'Invalid or expired code.');return}
+    user={email:data.user.email,name:data.user.name};
+    plan=data.user.plan||'free';qUsed=data.user.q||0;imgUsed=data.user.img||0;
+    localStorage.setItem('wj_email',data.user.email);
+    closeModal();
+    await initApp();
+  }catch(e){
+    showErr('eOtpVerify','Could not connect. Please try again.');
+  }finally{
+    if(btn){btn.disabled=false;btn.textContent='Verify & sign in →'}
+  }
+}
+
+/* FORGOT PASSWORD */
+async function doForgotPassword(){
+  const email=document.getElementById('forgotEmail').value.trim();
+  if(!email||!email.includes('@')){showErr('eForgot','Enter a valid email address.');return}
+  const btn=document.querySelector('#fForgot .m-btn');
+  if(btn){btn.disabled=true;btn.textContent='Sending…'}
+  try{
+    const res=await fetch('/api/auth',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'forgotPassword',email})});
+    const data=await res.json();
+    if(!res.ok||data.error){showErr('eForgot',data.error?.message||'Could not send reset link.');return}
+    showErr('eForgot','Reset link sent! Check your email.');
+    document.getElementById('eForgot').style.color='var(--green)';
+    document.getElementById('eForgot').style.background='var(--green-bg)';
+  }catch(e){
+    showErr('eForgot','Could not connect. Please try again.');
+  }finally{
+    if(btn){btn.disabled=false;btn.textContent='Send reset link →'}
+  }
+}
+let resetAccessToken='';
+async function doResetPassword(){
+  const pass=document.getElementById('resetPass').value;
+  if(!pass||pass.length<6){showErr('eReset','Password must be at least 6 characters.');return}
+  if(!resetAccessToken){showErr('eReset','Reset link expired. Please request a new one.');return}
+  const btn=document.querySelector('#fResetPassword .m-btn');
+  if(btn){btn.disabled=true;btn.textContent='Saving…'}
+  try{
+    const res=await fetch('/api/auth',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'updatePassword',token:resetAccessToken,password:pass})});
+    const data=await res.json();
+    if(!res.ok||data.error){showErr('eReset',data.error?.message||'Could not update password.');return}
+    closeModal();
+    openModal('login');
+    document.getElementById('eLI').textContent='Password updated! Please sign in.';
+    document.getElementById('eLI').style.display='block';
+    document.getElementById('eLI').style.color='var(--green)';
+    document.getElementById('eLI').style.background='var(--green-bg)';
+    history.replaceState(null,'',window.location.pathname);
+  }catch(e){
+    showErr('eReset','Could not connect. Please try again.');
+  }finally{
+    if(btn){btn.disabled=false;btn.textContent='Set new password →'}
+  }
+}
+
+async function saveUserData(){
+  if(!user)return;
+  try{
+    await fetch('/api/auth',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'updateUsage',email:user.email,q:qUsed,img:imgUsed,newPlan:plan})});
+  }catch(e){console.error('saveUserData failed',e)}
+}
+function goLanding(){
+  localStorage.removeItem('wj_email');
+  user=null;plan='free';qUsed=0;imgUsed=0;curHistId=null;chatHistory=[];
+  document.getElementById('app').style.display='none';
+  document.getElementById('landing').style.display='block';
+  document.body.style.overflow='auto';
+}
+
+/* APP INIT */
+async function initApp(){
+  document.getElementById('landing').style.display='none';
+  document.getElementById('app').style.display='flex';
+  document.body.style.overflow='hidden';
+  document.getElementById('uNameTag').textContent=user.name.split(' ')[0];
+  const pip=document.getElementById('planPip');
+  pip.textContent=plan.toUpperCase();
+  pip.className='plan-pip'+(plan==='pro'?' pro':plan==='premium'?' premium':'');
+  await loadHists();
+  renderHistList();
+  switchAdv('all',document.getElementById('sbb-all'));
+  initVoice();
+  updateImgBtnLock();
+}
+
+/* ADVISOR SWITCH */
+function switchAdv(type,btn){
+  curAdv=type;
+  chatHistory=[];
+  curHistId=null;
+  clearPendingImages();
+  document.querySelectorAll('.sb-btn').forEach(b=>b.classList.remove('act'));
+  const b=btn||document.getElementById('sbb-'+type);
+  if(b)b.classList.add('act');
+  const adv=ADV[type]||ADV.all;
+  document.getElementById('chIco').innerHTML=adv.icon;
+  document.getElementById('chName').textContent=adv.name;
+  document.getElementById('chSub').textContent=adv.sub;
+  renderWelcome(adv);
+  closeDrawer();
+}
+function renderWelcome(adv){
+  const area=document.getElementById('msgArea');
+  area.innerHTML='';
+  const d=document.createElement('div');
+  d.className='ws fade-in';
+  d.innerHTML=`
+    <div class="ws-ico">${adv.icon}</div>
+    <div class="ws-title">${adv.name}</div>
+    <p class="ws-desc">${adv.desc}</p>
+    <div class="chips">${adv.chips.map(c=>`<button class="chip" onclick="useChip(this.textContent)">${c}</button>`).join('')}</div>`;
+  area.appendChild(d);
+  document.getElementById('upWall').classList.remove('show');
+  if(plan==='free'&&qUsed>=qLimit){document.getElementById('upWall').classList.add('show')}
+}
+function newChat(){
+  chatHistory=[];
+  curHistId=null;
+  clearPendingImages();
+  renderWelcome(getAdv());
+  closeDrawer();
+}
+function useChip(t){
+  document.getElementById('uInp').value=t;
+  sendMsg();
+}
+
+/* HISTORY — backed by Supabase via /api/history. histCache mirrors server state for fast UI. */
+let histCache=[];
+async function loadHists(){
+  if(!user)return[];
+  try{
+    const res=await fetch('/api/history?email='+encodeURIComponent(user.email));
+    const data=await res.json();
+    histCache=(data.history||[]).map(h=>({id:h.id,adv:h.advisor,title:h.title,messages:h.messages||[]}));
+    return histCache;
+  }catch(e){console.error('loadHists failed',e);return histCache}
+}
+async function saveToHistory(userMsg){
+  if(!user)return;
+  try{
+    if(curHistId){
+      await fetch('/api/history',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:curHistId,advisor:curAdv,messages:[...chatHistory]})});
+      const idx=histCache.findIndex(h=>h.id===curHistId);
+      if(idx>=0){histCache[idx].messages=[...chatHistory];histCache[idx].adv=curAdv}
+    }else{
+      const raw=userMsg.replace(/<[^>]+>/g,'');
+      const title=raw.length>45?raw.substring(0,45)+'…':raw;
+      const res=await fetch('/api/history',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:user.email,advisor:curAdv,title,messages:[...chatHistory]})});
+      const data=await res.json();
+      curHistId=data.id;
+      histCache.unshift({id:curHistId,adv:curAdv,title,messages:[...chatHistory]});
+    }
+    renderHistList();
+  }catch(e){console.error('saveToHistory failed',e)}
+}
+function renderHistList(){
+  const el=document.getElementById('histList');
+  if(!el)return;
+  const arr=histCache;
+  if(!arr.length){el.innerHTML='<p class="no-hi">No conversations yet</p>';return}
+  el.innerHTML=arr.map(h=>{
+    const adv=ADV[h.adv]||ADV.all;
+    const isCur=h.id===curHistId;
+    return`<div class="hi-item${isCur?' cur':''}" data-id="${h.id}">
+      <span class="hi-adv">${adv.iconTxt}</span>
+      <span class="hi-txt">${escH(h.title)}</span>
+      <button class="hi-del" data-del="${h.id}" title="Delete">&#10005;</button>
+    </div>`;
+  }).join('');
+  el.querySelectorAll('.hi-item').forEach(item=>{
+    item.addEventListener('click',function(e){
+      if(e.target.classList.contains('hi-del'))return;
+      loadHist(this.dataset.id);
+    });
+  });
+  el.querySelectorAll('.hi-del').forEach(btn=>{
+    btn.addEventListener('click',function(e){e.stopPropagation();delHist(this.dataset.del)});
+  });
+}
+function loadHist(id){
+  const h=histCache.find(x=>x.id===id);
+  if(!h)return;
+  curHistId=id;
+  curAdv=h.adv||'all';
+  chatHistory=[...(h.messages||[])];
+  document.querySelectorAll('.sb-btn').forEach(b=>b.classList.remove('act'));
+  const sb=document.getElementById('sbb-'+curAdv);
+  if(sb)sb.classList.add('act');
+  const adv=ADV[curAdv]||ADV.all;
+  document.getElementById('chIco').innerHTML=adv.icon;
+  document.getElementById('chName').textContent=adv.name;
+  document.getElementById('chSub').textContent=adv.sub;
+  const area=document.getElementById('msgArea');
+  area.innerHTML='';
+  chatHistory.forEach(m=>addBubble(m.role==='user'?'usr':'ai',m.content,m.images));
+  renderHistList();
+  area.scrollTop=area.scrollHeight;
+  document.getElementById('upWall').classList.remove('show');
+  if(plan==='free'&&qUsed>=qLimit){document.getElementById('upWall').classList.add('show')}
+  closeDrawer();
+}
+async function delHist(id){
+  histCache=histCache.filter(h=>h.id!==id);
+  renderHistList();
+  if(curHistId===id){curHistId=null;chatHistory=[];renderWelcome(getAdv())}
+  try{
+    await fetch('/api/history?id='+encodeURIComponent(id),{method:'DELETE'});
+  }catch(e){console.error('delHist failed',e)}
+}
+
+/* VOICE INPUT (Web Speech API) — converts speech to text in the input box, silently hides if unavailable */
+let recognition=null, isRecording=false;
+function initVoice(){
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  const micBtn=document.getElementById('micBtn');
+  const isSecure=location.protocol==='https:'||location.hostname==='localhost'||location.hostname==='127.0.0.1';
+
+  // If not supported or not on a secure origin, just hide the mic button — no alerts, no friction
+  if(!SR||!isSecure){
+    micBtn.style.display='none';
+    return;
+  }
+
+  recognition=new SR();
+  recognition.continuous=false;
+  recognition.interimResults=true;
+  recognition.lang='en-US';
+  recognition.onresult=(e)=>{
+    let transcript='';
+    for(let i=0;i<e.results.length;i++)transcript+=e.results[i][0].transcript;
+    document.getElementById('uInp').value=transcript;
+    autoH(document.getElementById('uInp'));
+  };
+  recognition.onend=()=>{isRecording=false;micBtn.classList.remove('recording')};
+  recognition.onerror=()=>{
+    // Mic blocked, no speech, or network hiccup — just reset the button, no popups
+    isRecording=false;micBtn.classList.remove('recording');
+  };
+}
+function toggleVoice(){
+  if(!recognition)return;
+  const micBtn=document.getElementById('micBtn');
+  if(isRecording){
+    recognition.stop();isRecording=false;micBtn.classList.remove('recording');
+  }else{
+    try{
+      recognition.start();isRecording=true;micBtn.classList.add('recording');
+    }catch(err){
+      isRecording=false;micBtn.classList.remove('recording');
+    }
+  }
+}
+
+/* IMAGE UPLOAD — free users get 2/month, Pro & Premium unlimited */
+const FREE_IMG_LIMIT=2;
+function onImgBtnClick(){
+  if(plan==='free'&&imgUsed>=FREE_IMG_LIMIT){
+    openModal('upgrade');
+    return;
+  }
+  document.getElementById('imgFile').click();
+}
+function onImgSelected(e){
+  const files=Array.from(e.target.files||[]);
+  if(!files.length)return;
+  const MAX_IMAGES=4;
+  const remaining=MAX_IMAGES-pendingImages.length;
+  files.slice(0,remaining).forEach(file=>{
+    if(!file.type.startsWith('image/'))return;
+    const reader=new FileReader();
+    reader.onload=()=>{
+      pendingImages.push({dataUrl:reader.result,mime:file.type});
+      renderImgPreviews();
+    };
+    reader.readAsDataURL(file);
+  });
+  e.target.value='';
+}
+function renderImgPreviews(){
+  const row=document.getElementById('imgPreviewRow');
+  if(!pendingImages.length){row.classList.remove('show');row.innerHTML='';return}
+  row.classList.add('show');
+  row.innerHTML=pendingImages.map((img,i)=>
+    `<div class="img-thumb"><img src="${img.dataUrl}" alt="preview"><button class="img-thumb-x" onclick="removePendingImage(${i})">&#10005;</button></div>`
+  ).join('');
+}
+function removePendingImage(i){
+  pendingImages.splice(i,1);
+  renderImgPreviews();
+}
+function clearPendingImages(){
+  pendingImages=[];
+  renderImgPreviews();
+}
+function updateImgBtnLock(){
+  const imgBtn=document.getElementById('imgBtn');
+  if(!imgBtn)return;
+  const isLimitReached=plan==='free'&&imgUsed>=FREE_IMG_LIMIT;
+  imgBtn.innerHTML=!isLimitReached
+    ?`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>`
+    :`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="lock-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V8a4 4 0 018 0v3"/></svg></span>`;
+  if(plan==='free'){
+    imgBtn.title=isLimitReached?`Image uploads — you've used ${FREE_IMG_LIMIT}/${FREE_IMG_LIMIT} free this month`:`Attach image (${FREE_IMG_LIMIT-imgUsed}/${FREE_IMG_LIMIT} free this month)`;
+  }else{
+    imgBtn.title='Attach image';
+  }
+}
+
+/* MESSAGING */
+function handleKey(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMsg()}}
+function autoH(el){el.style.height='auto';el.style.height=Math.min(el.scrollHeight,110)+'px'}
+
+async function callAI(adv, hasImages){
+  const model = hasImages ? NVIDIA_VISION_MODEL : NVIDIA_MODEL;
+  const messages=[
+    {role:'system',content:adv.sys},
+    ...chatHistory.map(m=>{
+      if(m.images&&m.images.length){
+        const content=[{type:'text',text:m.content||'Please review this image.'}];
+        m.images.forEach(img=>content.push({type:'image_url',image_url:{url:img.dataUrl}}));
+        return{role:m.role,content};
+      }
+      return{role:m.role,content:m.content};
+    })
+  ];
+  // Calls our own /api/chat serverless function — the NVIDIA key stays server-side, never exposed to the browser.
+  const res=await fetch('/api/chat',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({
+      model,
+      messages,
+      max_tokens:2400,
+      temperature:0.5
+    })
+  });
+  const data=await res.json();
+  if(data.choices&&data.choices[0]&&data.choices[0].message){
+    return data.choices[0].message.content;
+  }
+  if(data.error)throw new Error(data.error.message||JSON.stringify(data.error));
+  throw new Error('No response from AI');
+}
+
+async function sendMsg(){
+  if(busy)return;
+  const inp=document.getElementById('uInp');
+  const txt=inp.value.trim();
+  const hasImgs=pendingImages.length>0;
+  if(!txt&&!hasImgs)return;
+  if(plan==='free'&&qUsed>=qLimit){openModal('upgrade');return}
+  if(plan==='free'&&hasImgs&&imgUsed>=FREE_IMG_LIMIT){openModal('upgrade');return}
+  if(isRecording&&recognition){recognition.stop();isRecording=false;document.getElementById('micBtn').classList.remove('recording')}
+  document.querySelector('.ws')?.remove();
+  inp.value='';inp.style.height='auto';
+
+  const imagesToSend=pendingImages.slice();
+  clearPendingImages();
+
+  addBubble('usr',txt,imagesToSend);
+  chatHistory.push({role:'user',content:txt,images:imagesToSend.length?imagesToSend:undefined});
+  const tid=showTyping();
+  busy=true;
+  document.getElementById('sendBtn').disabled=true;
+  try{
+    const adv=getAdv();
+    const reply=await callAI(adv,imagesToSend.length>0);
+    removeTyping(tid);
+    chatHistory.push({role:'assistant',content:reply});
+    addBubble('ai',reply);
+    await saveToHistory(txt||'Image question');
+    if(plan==='free'){
+      qUsed++;
+      if(imagesToSend.length)imgUsed++;
+      saveUserData();
+      if(qUsed>=qLimit){document.getElementById('upWall').classList.add('show')}
+      updateImgBtnLock();
+    }
+  }catch(err){
+    removeTyping(tid);
+    addBubble('ai','Sorry, something went wrong: '+(err.message||'Please try again.'));
+    console.error('API error:',err);
+  }
+  busy=false;
+  document.getElementById('sendBtn').disabled=false;
+}
+
+function addBubble(role,content,images){
+  const area=document.getElementById('msgArea');
+  const d=document.createElement('div');
+  d.className=`msg ${role} fade-in`;
+  const adv=getAdv();
+  const icon=role==='ai'
+    ?`<div class="m-av">${adv.icon}</div>`
+    :`<div class="m-av">${user?user.name.charAt(0).toUpperCase():'U'}</div>`;
+  let bubbleContent;
+  if(role==='ai'){
+    const formatted=fmtMsg(content);
+    const hasDocOffer=/(would you like me to draft|say 'yes, draft|ready-to-send document)/i.test(content);
+    const docBtn=hasDocOffer?`<button class="doc-dl" onclick="dlDoc(this)">&#128196; Download as document</button>`:'';
+    bubbleContent=`<div class="m-bub">${formatted}${docBtn}</div>`;
+  }else{
+    const imgsHtml=(images&&images.length)?`<div class="msg-imgs">${images.map(im=>`<img src="${im.dataUrl}" alt="attached image">`).join('')}</div>`:'';
+    const textHtml=content?escH(content):'';
+    bubbleContent=`<div class="m-bub">${imgsHtml}${textHtml}</div>`;
+  }
+  d.innerHTML=icon+bubbleContent;
+  area.appendChild(d);
+  area.scrollTop=area.scrollHeight;
+}
+function dlDoc(btn){
+  const bub=btn.closest('.m-bub');
+  let text='';
+  if(bub){
+    const clone=bub.cloneNode(true);
+    const btnInClone=clone.querySelector('.doc-dl');
+    if(btnInClone)btnInClone.remove();
+    text=clone.innerText.trim();
+  }
+  const blob=new Blob([text],{type:'text/plain;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download='wealthjustice-document.txt';
+  document.body.appendChild(a);a.click();document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+function fmtMsg(t){
+  let s=t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>')
+    .replace(/\*(.*?)\*/g,'<em>$1</em>');
+
+  let html='';
+  const blocks=s.split(/\n\n+/);
+  for(const block of blocks){
+    const lines=block.split('\n').filter(l=>l.trim()!=='');
+    if(!lines.length)continue;
+
+    let buf=[];
+    const flush=()=>{if(buf.length){html+='<p>'+buf.join('<br>')+'</p>';buf=[]}};
+
+    let i=0;
+    while(i<lines.length){
+      const line=lines[i];
+      if(/^#{1,3}\s/.test(line)){
+        flush();
+        html+=line.replace(/^#{1,3}\s(.+)$/,'<h3>$1</h3>');
+        i++;
+      }else if(/^\s*[-•*]\s/.test(line)){
+        flush();
+        let items=[];
+        while(i<lines.length&&/^\s*[-•*]\s/.test(lines[i])){
+          items.push('<li>'+lines[i].replace(/^\s*[-•*]\s*/,'')+'</li>');
+          i++;
+        }
+        html+='<ul>'+items.join('')+'</ul>';
+      }else if(/^\s*\d+[.)]\s/.test(line)){
+        flush();
+        let items=[];
+        while(i<lines.length&&/^\s*\d+[.)]\s/.test(lines[i])){
+          items.push('<li>'+lines[i].replace(/^\s*\d+[.)]\s*/,'')+'</li>');
+          i++;
+        }
+        html+='<ol>'+items.join('')+'</ol>';
+      }else{
+        buf.push(line);
+        i++;
+      }
+    }
+    flush();
+  }
+  return html;
+}
+function showTyping(){
+  const area=document.getElementById('msgArea');
+  const id='ty'+Date.now();
+  const d=document.createElement('div');
+  d.className='typing-wrap fade-in';
+  d.id=id;
+  const adv=getAdv();
+  d.innerHTML=`<div class="m-av" style="width:30px;height:30px;background:var(--copper-bg);border:1px solid var(--copper-b);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0">${adv.icon}</div>
+  <div class="t-bub"><div class="td"></div><div class="td"></div><div class="td"></div></div>`;
+  area.appendChild(d);
+  area.scrollTop=area.scrollHeight;
+  return id;
+}
+function removeTyping(id){const el=document.getElementById(id);if(el)el.remove()}
+
+/* CHECKOUT */
+/* ═══════════════════════════════════
+   DODO PAYMENTS CHECKOUT LINKS
+   In your Dodo Payments dashboard: create 2 Products (Pro $29/mo recurring,
+   Premium $49/mo recurring) -> each Product gives you a hosted checkout link
+   (looks like https://checkout.dodopayments.com/buy/pdt_xxxxxxxxxxxx).
+   Paste those 2 links below. That's the only change needed here.
+═══════════════════════════════════ */
+const DODO_LINKS = {
+  pro: 'PASTE_YOUR_DODO_PRO_CHECKOUT_LINK_HERE',
+  premium: 'PASTE_YOUR_DODO_PREMIUM_CHECKOUT_LINK_HERE'
+};
+
+function startCheckout(p){
+  closeModal();
+  const base = DODO_LINKS[p];
+  if(!base || base.includes('PASTE_YOUR_')){
+    alert('Payments not connected yet.\n\nAdd your Dodo Payments checkout link for the ' + p.toUpperCase() + ' plan in DODO_LINKS near the top of the script, then this button will redirect there automatically.');
+    return;
+  }
+  // Pass email + chosen plan as a redirect_url param so we know who/what to confirm when they land back here.
+  const returnUrl = window.location.origin + window.location.pathname + '?upgraded=' + p + '&email=' + encodeURIComponent(user ? user.email : '');
+  const params = new URLSearchParams({
+    email: user ? user.email : '',
+    redirect_url: returnUrl
+  });
+  window.location.href = base + (base.includes('?') ? '&' : '?') + params.toString();
+}
+
+/* Runs when the user lands back here after a successful Dodo payment (see redirect_url above).
+   NOTE: this is a convenience confirmation for the browser session only. For production,
+   also verify payment server-side via a Dodo Payments webhook before fully trusting "pro/premium" status. */
+function applyPlanUpgrade(newPlan){
+  plan = newPlan;
+  qUsed = 0;
+  saveUserData();
+  const pip=document.getElementById('planPip');
+  if(pip){
+    pip.textContent=plan.toUpperCase();
+    pip.className='plan-pip'+(plan==='pro'?' pro':plan==='premium'?' premium':'');
+  }
+  updateImgBtnLock();
+  document.getElementById('upWall')?.classList.remove('show');
+}
+
+/* BOOT */
+window.addEventListener('load', async ()=>{
+  // If this page load is a password-reset link from Supabase, it arrives as a URL
+  // hash like #access_token=...&type=recovery. Detect it and show the reset form.
+  if(window.location.hash && window.location.hash.includes('type=recovery')){
+    const hashParams = new URLSearchParams(window.location.hash.substring(1));
+    const accessToken = hashParams.get('access_token');
+    if(accessToken){
+      resetAccessToken = accessToken;
+      openModal('resetPassword');
+      history.replaceState(null,'',window.location.pathname+window.location.search);
+    }
+  }
+
+  const savedEmail = localStorage.getItem('wj_email');
+  if(savedEmail){
+    try{
+      const res=await fetch('/api/auth',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'getUser',email:savedEmail})});
+      const data=await res.json();
+      if(res.ok && data.user){
+        user={email:data.user.email,name:data.user.name};
+        plan=data.user.plan||'free';
+        qUsed=data.user.q||0;
+        imgUsed=data.user.img||0;
+        await initApp();
+      }else{
+        localStorage.removeItem('wj_email');
+      }
+    }catch(e){
+      console.error('Session restore failed', e);
+    }
+  }
+
+  // If Dodo Payments redirected back here (via redirect_url) with ?upgraded=pro / ?upgraded=premium
+  // after a successful payment, confirm the upgrade. NOTE: for production, also verify this
+  // server-side via a Dodo Payments webhook instead of trusting the URL alone.
+  const params = new URLSearchParams(window.location.search);
+  const upgraded = params.get('upgraded');
+  if(upgraded && (upgraded==='pro'||upgraded==='premium') && user){
+    applyPlanUpgrade(upgraded);
+    history.replaceState(null,'',window.location.pathname);
+  }
+});
+</script>
+</body>
+</html>
